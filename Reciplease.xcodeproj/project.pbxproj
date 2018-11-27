@@ -7,18 +7,22 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		900D0EA421AD5F9300AE536C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 900D0EA321AD5F9300AE536C /* Assets.xcassets */; };
+		9030216A21AD661600FFAAD8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 90981DC721AC076200DD3C86 /* LaunchScreen.storyboard */; };
+		9070221D21AD909A004D8BD1 /* SourceSansPro-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9070221B21AD909A004D8BD1 /* SourceSansPro-Light.otf */; };
+		9070221E21AD909A004D8BD1 /* SourceSansPro-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9070221C21AD909A004D8BD1 /* SourceSansPro-Regular.otf */; };
 		90981DBF21AC076100DD3C86 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90981DBE21AC076100DD3C86 /* AppDelegate.swift */; };
 		90981DC421AC076100DD3C86 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 90981DC221AC076100DD3C86 /* Main.storyboard */; };
-		90981DC621AC076200DD3C86 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 90981DC521AC076200DD3C86 /* Assets.xcassets */; };
-		90981DC921AC076200DD3C86 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 90981DC721AC076200DD3C86 /* LaunchScreen.storyboard */; };
 		90981DD321AC504D00DD3C86 /* ImageEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90981DD221AC504D00DD3C86 /* ImageEnum.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		900D0EA321AD5F9300AE536C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		9070221B21AD909A004D8BD1 /* SourceSansPro-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceSansPro-Light.otf"; sourceTree = "<group>"; };
+		9070221C21AD909A004D8BD1 /* SourceSansPro-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceSansPro-Regular.otf"; sourceTree = "<group>"; };
 		90981DBB21AC076100DD3C86 /* Reciplease.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Reciplease.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		90981DBE21AC076100DD3C86 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		90981DC321AC076100DD3C86 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		90981DC521AC076200DD3C86 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		90981DC821AC076200DD3C86 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		90981DCA21AC076200DD3C86 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		90981DD221AC504D00DD3C86 /* ImageEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageEnum.swift; sourceTree = "<group>"; };
@@ -63,9 +67,11 @@
 		90981DD021AC079700DD3C86 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				90981DC521AC076200DD3C86 /* Assets.xcassets */,
 				90981DBE21AC076100DD3C86 /* AppDelegate.swift */,
 				90981DCA21AC076200DD3C86 /* Info.plist */,
+				900D0EA321AD5F9300AE536C /* Assets.xcassets */,
+				9070221B21AD909A004D8BD1 /* SourceSansPro-Light.otf */,
+				9070221C21AD909A004D8BD1 /* SourceSansPro-Regular.otf */,
 			);
 			path = "Supporting Files";
 			sourceTree = "<group>";
@@ -138,8 +144,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				90981DC921AC076200DD3C86 /* LaunchScreen.storyboard in Resources */,
-				90981DC621AC076200DD3C86 /* Assets.xcassets in Resources */,
+				9070221E21AD909A004D8BD1 /* SourceSansPro-Regular.otf in Resources */,
+				9030216A21AD661600FFAAD8 /* LaunchScreen.storyboard in Resources */,
+				900D0EA421AD5F9300AE536C /* Assets.xcassets in Resources */,
+				9070221D21AD909A004D8BD1 /* SourceSansPro-Light.otf in Resources */,
 				90981DC421AC076100DD3C86 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

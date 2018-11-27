@@ -8,6 +8,7 @@
 
 import Foundation
 
+/// List image assets
 enum Image: String {
     case favorite = "favorite",
     favoriteFilled = "favoriteFilled",
