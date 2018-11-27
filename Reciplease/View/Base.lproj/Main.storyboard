@@ -9,6 +9,14 @@
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="SourceSansPro-Light.otf">
+            <string>SourceSansPro-Light</string>
+        </array>
+        <array key="SourceSansPro-Regular.otf">
+            <string>SourceSansPro-Regular</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--Tab Bar Controller-->
         <scene sceneID="DdJ-ie-wYs">
@@ -111,18 +119,82 @@
         <!--Ingredient View Controller-->
         <scene sceneID="ei7-yC-zdB">
             <objects>
-                <viewController id="3j1-cn-ldp" userLabel="Ingredient View Controller" sceneMemberID="viewController">
+                <viewController id="3j1-cn-ldp" userLabel="Ingredient View Controller" customClass="IngredientViewController" customModule="Reciplease" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="EKN-eh-Y9m">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ek5-BZ-7Uh">
+                                <rect key="frame" x="10" y="0.0" width="355" height="618"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="BzD-fL-cbm">
+                                        <rect key="frame" x="23" y="105" width="309" height="80"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6oV-xZ-s37" userLabel="Clear Button">
+                                                <rect key="frame" x="0.0" y="0.0" width="144.5" height="80"/>
+                                                <color key="backgroundColor" red="0.22166189550000001" green="0.24503991010000001" blue="0.1287551224" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="30"/>
+                                                <state key="normal" title="Clear">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="clearButton:" destination="JUd-I3-r8W" eventType="touchUpInside" id="N5c-7v-81c"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BN5-3p-myC" userLabel="Done Button">
+                                                <rect key="frame" x="164.5" y="0.0" width="144.5" height="80"/>
+                                                <color key="backgroundColor" red="0.22166189550000001" green="0.24503991010000001" blue="0.1287551224" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="80" id="8ak-TA-jWb"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="30"/>
+                                                <state key="normal" title="Done">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="doneButton:" destination="JUd-I3-r8W" eventType="touchUpInside" id="Ioh-XH-rWt"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Add your ingredients" translatesAutoresizingMaskIntoConstraints="NO" id="Xda-gU-C45" userLabel="Ingredients Text View">
+                                        <rect key="frame" x="20" y="205" width="315" height="238"/>
+                                        <color key="backgroundColor" red="0.66484129430000005" green="0.74673461910000005" blue="0.38995650409999999" alpha="0.0" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <fontDescription key="fontDescription" name="SourceSansPro-Light" family="Source Sans Pro" pointSize="22"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="words" keyboardAppearance="light" returnKeyType="next"/>
+                                    </textView>
+                                </subviews>
+                                <color key="backgroundColor" red="0.66484129430000005" green="0.74673461910000005" blue="0.38995650409999999" alpha="0.5" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstItem="Xda-gU-C45" firstAttribute="leading" secondItem="ek5-BZ-7Uh" secondAttribute="leading" constant="20" id="0vv-V3-7AF"/>
+                                    <constraint firstAttribute="trailing" secondItem="BzD-fL-cbm" secondAttribute="trailing" constant="23" id="56D-dt-YNg"/>
+                                    <constraint firstAttribute="bottom" secondItem="Xda-gU-C45" secondAttribute="bottom" constant="175" id="BuL-7z-9YH"/>
+                                    <constraint firstAttribute="trailing" secondItem="Xda-gU-C45" secondAttribute="trailing" constant="20" id="MC2-VP-cyQ"/>
+                                    <constraint firstItem="Xda-gU-C45" firstAttribute="top" secondItem="BzD-fL-cbm" secondAttribute="bottom" constant="20" id="hxl-wN-Imw"/>
+                                    <constraint firstItem="BzD-fL-cbm" firstAttribute="top" secondItem="ek5-BZ-7Uh" secondAttribute="top" constant="105" id="pxe-1I-cBE"/>
+                                    <constraint firstItem="BzD-fL-cbm" firstAttribute="leading" secondItem="ek5-BZ-7Uh" secondAttribute="leading" constant="23" id="qAz-Y6-HHp"/>
+                                </constraints>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="ek5-BZ-7Uh" firstAttribute="leading" secondItem="APH-jE-bKU" secondAttribute="leading" constant="10" id="0rK-h0-bFZ"/>
+                            <constraint firstItem="APH-jE-bKU" firstAttribute="trailing" secondItem="ek5-BZ-7Uh" secondAttribute="trailing" constant="10" id="ZCJ-uv-mwp"/>
+                            <constraint firstItem="ek5-BZ-7Uh" firstAttribute="top" secondItem="EKN-eh-Y9m" secondAttribute="top" id="nwe-rp-swB"/>
+                            <constraint firstItem="ek5-BZ-7Uh" firstAttribute="bottom" secondItem="APH-jE-bKU" secondAttribute="bottom" id="zrP-wG-Mdv"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="APH-jE-bKU"/>
                     </view>
                     <navigationItem key="navigationItem" id="Pxa-ST-dqn"/>
+                    <connections>
+                        <outlet property="IngredientTextView" destination="Xda-gU-C45" id="66t-7x-Blq"/>
+                        <outlet property="buttons" destination="BN5-3p-myC" id="zYU-vV-xbE"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cgF-gS-Z7b" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="JUd-I3-r8W" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="910" y="-554"/>
+            <point key="canvasLocation" x="909.60000000000002" y="-554.57271364317842"/>
         </scene>
     </scenes>
     <resources>
