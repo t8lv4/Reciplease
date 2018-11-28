@@ -12,10 +12,12 @@ class IngredientViewController: UIViewController {
 
     @IBOutlet weak var buttons: UIButton!
     
-    @IBOutlet weak var IngredientTextView: UITextView!
+
+    @IBOutlet weak var ingredientTextView: UITextView!
     
 
     @IBAction func clearButton(_ sender: UIButton) {
+        // clear textView
     }
 
 
@@ -28,6 +30,7 @@ class IngredientViewController: UIViewController {
         super.viewDidLoad()
 
         // set buttons corners and shadows
+        // set kb
     }
 }
 

@@ -14,5 +14,5 @@ enum Image: String {
     favoriteFilled = "favoriteFilled",
     launchScreenIcon = "launchScreenIcon",
     recipe = "recipe",
-    defaultImage = "default"
+    defaultImage = "defaultImage"
 }

@@ -15,6 +15,8 @@
 		90981DBF21AC076100DD3C86 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90981DBE21AC076100DD3C86 /* AppDelegate.swift */; };
 		90981DC421AC076100DD3C86 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 90981DC221AC076100DD3C86 /* Main.storyboard */; };
 		90981DD321AC504D00DD3C86 /* ImageEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90981DD221AC504D00DD3C86 /* ImageEnum.swift */; };
+		90E8A41121AE949B005D3751 /* RecipeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90E8A41021AE949B005D3751 /* RecipeViewController.swift */; };
+		90E8A41321AEE250005D3751 /* RecipeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90E8A41221AEE250005D3751 /* RecipeTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +30,8 @@
 		90981DC821AC076200DD3C86 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		90981DCA21AC076200DD3C86 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		90981DD221AC504D00DD3C86 /* ImageEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageEnum.swift; sourceTree = "<group>"; };
+		90E8A41021AE949B005D3751 /* RecipeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeViewController.swift; sourceTree = "<group>"; };
+		90E8A41221AEE250005D3751 /* RecipeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,6 +49,7 @@
 			isa = PBXGroup;
 			children = (
 				907267DF21ADAE30008AE480 /* IngredientViewController.swift */,
+				90E8A41021AE949B005D3751 /* RecipeViewController.swift */,
 			);
 			name = Controller;
 			path = "New Group";
@@ -91,6 +96,7 @@
 		90981DD121AC07FF00DD3C86 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				90E8A41221AEE250005D3751 /* RecipeTableViewCell.swift */,
 				90981DD221AC504D00DD3C86 /* ImageEnum.swift */,
 				90981DC221AC076100DD3C86 /* Main.storyboard */,
 				90981DC721AC076200DD3C86 /* LaunchScreen.storyboard */,
@@ -171,6 +177,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				90E8A41121AE949B005D3751 /* RecipeViewController.swift in Sources */,
+				90E8A41321AEE250005D3751 /* RecipeTableViewCell.swift in Sources */,
 				90981DBF21AC076100DD3C86 /* AppDelegate.swift in Sources */,
 				907267E021ADAE30008AE480 /* IngredientViewController.swift in Sources */,
 				90981DD321AC504D00DD3C86 /* ImageEnum.swift in Sources */,
