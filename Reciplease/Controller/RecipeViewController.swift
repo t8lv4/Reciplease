@@ -10,6 +10,7 @@ import UIKit
 
 class RecipeViewController: UIViewController {
 
+    @IBOutlet weak var tableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -19,11 +20,5 @@ class RecipeViewController: UIViewController {
         super.viewWillAppear(animated)
 
         // call API
-    }
-}
-
-extension RecipeViewController: UITableViewDelegate {
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        self.performSegue(withIdentifier: "toDetail", sender: self)
     }
 }
