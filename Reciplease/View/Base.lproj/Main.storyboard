@@ -210,7 +210,7 @@
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
                                                 <connections>
-                                                    <action selector="clearButton:" destination="JUd-I3-r8W" eventType="touchUpInside" id="N5c-7v-81c"/>
+                                                    <action selector="clearButton:" destination="3j1-cn-ldp" eventType="touchUpInside" id="igL-eN-6xB"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BN5-3p-myC" userLabel="Done Button">
@@ -224,7 +224,7 @@
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
                                                 <connections>
-                                                    <action selector="doneButton:" destination="JUd-I3-r8W" eventType="touchUpInside" id="Ioh-XH-rWt"/>
+                                                    <action selector="doneButton:" destination="3j1-cn-ldp" eventType="touchUpInside" id="3se-Rj-BOP"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -259,12 +259,11 @@
                     </view>
                     <navigationItem key="navigationItem" title="Ingredients" id="Pxa-ST-dqn"/>
                     <connections>
-                        <outlet property="buttons" destination="BN5-3p-myC" id="zYU-vV-xbE"/>
+                        <outlet property="buttons" destination="6oV-xZ-s37" id="73Q-5F-TKE"/>
                         <outlet property="ingredientTextView" destination="Xda-gU-C45" id="NRL-NO-r7a"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cgF-gS-Z7b" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <exit id="JUd-I3-r8W" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="908.69565217391312" y="-555.16304347826087"/>
         </scene>

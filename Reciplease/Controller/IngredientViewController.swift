@@ -9,31 +9,33 @@
 import UIKit
 
 class IngredientViewController: UIViewController {
-
+    /// Reference Clear and Done buttons
     @IBOutlet weak var buttons: UIButton!
-    
-
+    /// Ingredients list
     @IBOutlet weak var ingredientTextView: UITextView!
-    
-
-    @IBAction func clearButton(_ sender: UIButton) {
-        // clear textView
+    /// Clear ingredients list
+    @IBAction func clearButton(_ sender: Any) {
+        ingredientTextView.text = ""
     }
 
-
+    /// Create &q= and present RecipeViewController
     @IBAction func doneButton(_ sender: UIButton) {
+        // create &q= with ingredients
     }
-
-
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        ingredientTextView.delegate = self
         // set buttons corners and shadows
-        // set kb
     }
 }
 
 extension IngredientViewController: UITextViewDelegate {
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+    }
 
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        ingredientTextView.text = ""
+    }
 }

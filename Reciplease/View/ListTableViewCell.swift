@@ -22,7 +22,7 @@ class ListTableViewCell: UITableViewCell {
     @IBOutlet weak var ratingLabel: UILabel!
     /// Preparation time
     @IBOutlet weak var timeLabel: UILabel!
-    
+
     override func awakeFromNib() {
         super.awakeFromNib()
         // add shadows and rounded corners
@@ -33,6 +33,15 @@ class ListTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
+    }
+
+    /// Configure custom cell's elements
+    func configure(image: String, name: String, ingredients: String, rating: String, time: String) {
+        recipeImage.image = UIImage(named: image)
+        nameLabel.text = name
+        ingredientLabel.text = ingredients
+        ratingLabel.text = rating + " ⭐️"
+        timeLabel.text = time + " ⏲"
     }
 
 }

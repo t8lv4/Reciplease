@@ -8,6 +8,7 @@
 
 import UIKit
 
+/// List recipies
 class RecipeViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
@@ -20,5 +21,26 @@ class RecipeViewController: UIViewController {
         super.viewWillAppear(animated)
 
         // call API
+    }
+
+}
+
+extension RecipeViewController: UITableViewDataSource {
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 1// recipies count from API
+    }
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "listCell", for: indexPath) as? ListTableViewCell else {
+            return UITableViewCell()
+        }
+
+        // call cell.configure(imag:name:ingredients:rating:time)
+        
+        return cell
     }
 }
