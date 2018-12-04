@@ -13,7 +13,7 @@ import Alamofire
 struct YummlyService {
 
     static func call(with ingredients: String) {
-        Alamofire.request(createRequest(with: ingredients)).responseJSON { response in
+        Alamofire.request(recipies(with: ingredients)).responseJSON { response in
             print("Request: \(String(describing: response.request))")   // original url request
             print("Response: \(String(describing: response.response))") // http url response
             print("Result: \(response.result)")                         // response serialization result
@@ -31,7 +31,7 @@ struct YummlyService {
 
 extension YummlyService {
     /// Create a  URLRequest to access Yummly resources
-    static private func createRequest(with ingredients: String) -> URLRequest {
+    static private func recipies(with ingredients: String) -> URLRequest {
         let ingredients = ingredients.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)
         let completeURL = APIAssets.endpoint
             + APIAssets.credentials
