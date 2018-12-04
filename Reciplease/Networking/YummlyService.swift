@@ -13,10 +13,10 @@ struct YummlyService {
 
 }
 
-extension YummlyService {
-    /// Create a  URLRequest to access API resources
-    func createRequest() -> URLRequest {
-
-        return request
-    }
-}
+//extension YummlyService {
+//    /// Create a  URLRequest to access API resources
+//    func createRequest() -> URLRequest {
+//
+//        return request
+//    }
+//}
