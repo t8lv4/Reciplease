@@ -10,20 +10,29 @@ import UIKit
 
 /// List recipies
 class RecipeViewController: UIViewController {
-
+    /// Ingredients list from IngredientViewController
+    var ingredientsList = ""
+    /// Display recipies
     @IBOutlet weak var tableView: UITableView!
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        print(ingredientsList)
     }
+}
 
+// MARK: API call
+
+extension RecipeViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
-        // call API
+        YummlyService.call(with: ingredientsList)
     }
-
 }
+
+// MARK: - Table View
 
 extension RecipeViewController: UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {

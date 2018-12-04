@@ -23,16 +23,25 @@ class IngredientViewController: UIViewController {
     @IBAction func clearButton(_ sender: Any) {
         ingredientTextView.text = ""
     }
-    /// Hold user input and show RecipeViewController
+    /// Hold user input,
+    /// trigger a segue to RecipeViewController
     @IBAction func doneButton(_ sender: UIButton) {
         if ingredientTextView.text == "" { return } // show alert
         else { getIngredients() }
     }
 
-    private func getIngredients() {
-        _ = ingredientTextView
+    @discardableResult private func getIngredients() -> String {
+        let ingredientsList = ingredientTextView
             .text
-            .replacingOccurrences(of: "\n", with: "")
+            .replacingOccurrences(of: "\n", with: " ")
+
+        return ingredientsList
+    }
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let recipeVC = segue.destination as? RecipeViewController {
+            recipeVC.ingredientsList = getIngredients()
+        }
     }
 }
 
