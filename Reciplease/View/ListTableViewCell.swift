@@ -9,7 +9,6 @@
 import UIKit
 
 class ListTableViewCell: UITableViewCell {
-
     /// Name the recipe image
     @IBOutlet weak var recipeImage: UIImageView!
     /// Contains recipe's name, ingredients, rating and preparation time
@@ -26,7 +25,6 @@ class ListTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // add shadows and rounded corners
-        // Initialization code
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -34,7 +32,9 @@ class ListTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
+}
 
+extension ListTableViewCell {
     /// Configure custom cell's elements
     func configure(image: String, name: String, ingredients: String, rating: String, time: String) {
         recipeImage.image = UIImage(named: image)
@@ -43,5 +43,4 @@ class ListTableViewCell: UITableViewCell {
         ratingLabel.text = rating + " ⭐️"
         timeLabel.text = time + " ⏲"
     }
-
 }

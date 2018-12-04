@@ -8,31 +8,41 @@
 
 import UIKit
 
+/// List ingredients
 class IngredientViewController: UIViewController {
+    // MARK: - Properties
+
     /// Reference Clear and Done buttons
     @IBOutlet weak var buttons: UIButton!
     /// Ingredients list
     @IBOutlet weak var ingredientTextView: UITextView!
+
+    // MARK: - Actions
+
     /// Clear ingredients list
     @IBAction func clearButton(_ sender: Any) {
         ingredientTextView.text = ""
     }
-
-    /// Create &q= and present RecipeViewController
+    /// Hold user input and show RecipeViewController
     @IBAction func doneButton(_ sender: UIButton) {
-        // create &q= with ingredients
+        if ingredientTextView.text == "" { return } // show alert
+        else { getIngredients() }
     }
 
+    private func getIngredients() {
+        _ = ingredientTextView
+            .text
+            .replacingOccurrences(of: "\n", with: "")
+    }
+}
+
+// MARK: - textView
+
+extension IngredientViewController: UITextViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         ingredientTextView.delegate = self
         // set buttons corners and shadows
-    }
-}
-
-extension IngredientViewController: UITextViewDelegate {
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
     }
 
     func textViewDidBeginEditing(_ textView: UITextView) {
