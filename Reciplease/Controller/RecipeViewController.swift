@@ -22,7 +22,7 @@ class RecipeViewController: UIViewController {
     }
 }
 
-// MARK: API call
+// MARK: - API call
 
 extension RecipeViewController {
     override func viewWillAppear(_ animated: Bool) {

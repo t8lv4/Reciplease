@@ -20,6 +20,7 @@
 		90981DC421AC076100DD3C86 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 90981DC221AC076100DD3C86 /* Main.storyboard */; };
 		90981DD321AC504D00DD3C86 /* ImageEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90981DD221AC504D00DD3C86 /* ImageEnum.swift */; };
 		90E8A41121AE949B005D3751 /* RecipeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90E8A41021AE949B005D3751 /* RecipeViewController.swift */; };
+		90FE739B21B7F4DD009A3AE1 /* Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90FE739A21B7F4DD009A3AE1 /* Recipe.swift */; };
 		C43088F665729A156C493663 /* Pods_Reciplease.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B231B05EE2A91CE401335CD /* Pods_Reciplease.framework */; };
 /* End PBXBuildFile section */
 
@@ -42,6 +43,7 @@
 		90981DCA21AC076200DD3C86 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		90981DD221AC504D00DD3C86 /* ImageEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageEnum.swift; sourceTree = "<group>"; };
 		90E8A41021AE949B005D3751 /* RecipeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RecipeViewController.swift; path = ../Controller/RecipeViewController.swift; sourceTree = "<group>"; };
+		90FE739A21B7F4DD009A3AE1 /* Recipe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Recipe.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +98,7 @@
 		90981DBD21AC076100DD3C86 /* Reciplease */ = {
 			isa = PBXGroup;
 			children = (
+				90FE739A21B7F4DD009A3AE1 /* Recipe.swift */,
 				90981DD121AC07FF00DD3C86 /* View */,
 				907267E121ADAE42008AE480 /* Controller */,
 				90981DD021AC079700DD3C86 /* Supporting Files */,
@@ -272,6 +275,7 @@
 				904CC2F521B6C840003A117A /* YummlyService.swift in Sources */,
 				907267E021ADAE30008AE480 /* IngredientViewController.swift in Sources */,
 				90981DD321AC504D00DD3C86 /* ImageEnum.swift in Sources */,
+				90FE739B21B7F4DD009A3AE1 /* Recipe.swift in Sources */,
 				904CC2FC21B6D141003A117A /* Credential.swift in Sources */,
 				903E83AE21B5755C00D687CC /* ListTableViewCell.swift in Sources */,
 			);
