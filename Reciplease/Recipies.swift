@@ -8,8 +8,8 @@
 import Foundation
 
 /// Mirror Yummly's JSON structure
-struct Recipe: Decodable {
-    let recipies: [Recipe]
+struct Recipies: Decodable {
+    let matches: [Recipe]
     let totalMatchCount: Int
 
     struct Recipe: Decodable {
@@ -20,3 +20,4 @@ struct Recipe: Decodable {
         let smallImageUrls: [String]?
     }
 }
+

@@ -12,6 +12,8 @@ import UIKit
 class IngredientViewController: UIViewController {
     // MARK: - Properties
 
+    let userInput = Ingredient()
+
     /// Reference Clear and Done buttons
     @IBOutlet weak var buttons: UIButton!
     /// Ingredients list
@@ -26,21 +28,13 @@ class IngredientViewController: UIViewController {
     /// Hold user input,
     /// trigger a segue to RecipeViewController
     @IBAction func doneButton(_ sender: UIButton) {
-        if ingredientTextView.text == "" { return } // show alert
-        else { getIngredients() }
-    }
-
-    @discardableResult private func getIngredients() -> String {
-        let ingredientsList = ingredientTextView
-            .text
-            .replacingOccurrences(of: "\n", with: " ")
-
-        return ingredientsList
+        if ingredientTextView.text == "" { return }
+        // show alert
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let recipeVC = segue.destination as? RecipeViewController {
-            recipeVC.ingredientsList = getIngredients()
+            recipeVC.ingredientsList = userInput.catchList(of: ingredientTextView.text)
         }
     }
 }

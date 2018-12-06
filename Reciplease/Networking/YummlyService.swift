@@ -14,15 +14,31 @@ struct YummlyService {
     /// Perform an API call with Alamofire
     static func call(with ingredients: String) {
         Alamofire.request(getRecipies(with: ingredients)).responseJSON { response in
-            if let json = response.result.value {
-                print("JSON: \(json)") // serialized json response
+            response.result.ifFailure {
+                print("no data")
+            }
+            response.result.ifSuccess {
+                let resource = parse(response.data!)
             }
 
-            if let data = response.data, let utf8Text = String(data: data, encoding: .utf8) {
-                print("Data: \(utf8Text)") // original server data as UTF8 string
-            }
 
-            parse(response.data!)
+//            switch response.result {
+//            case .failure( _) : break
+//            // alert user
+//            case .success( _) :
+//                if let json = response.result.value as? [String: Any] {
+//                    print("JSON: \(json)")
+//                }
+//            }
+
+            //  switch response.result == case failure ?
+            // response.result.value == dictionnaire [String: Any]?
+
+//            if let data = response.data, let utf8Text = String(data: data, encoding: .utf8) {
+//                print("Data: \(utf8Text)") // original server data as UTF8 string
+//            }
+
+//            let resource = parse(response.data!)
         }
     }
 }
@@ -48,14 +64,14 @@ extension YummlyService {
 
 extension YummlyService {
     /// Decode data
-    @discardableResult static func parse(_ data: Data) -> Any {
+    @discardableResult static func parse(_ data: Data) -> Recipies {
+        let recipe = Recipies(matches: [], totalMatchCount: 0)
 
         do {
-           let json = try JSONDecoder().decode(Recipe.self, from: data)
-            print("\(json.matches)\n\(json.matches.count)\n\(json.totalMatchCount)")
-
-            print(":::::::::\(json.matches[9].id)")
-
+            let recipe = try JSONDecoder().decode(Recipies.self, from: data)
+            print("\(recipe.matches)\n\(recipe.matches.count)\n\(recipe.totalMatchCount)")
+            print(":::::::::\(recipe.matches[9].id)")
+            return recipe
         } catch DecodingError.dataCorrupted(let context) {
             print(context.debugDescription)
         } catch DecodingError.keyNotFound(let key, let context) {
@@ -68,6 +84,6 @@ extension YummlyService {
             print("Unknown error")
         }
 
-        return 1
+        return recipe
     }
 }
