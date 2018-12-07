@@ -13,7 +13,7 @@ import Alamofire
 struct YummlyService {
     /// Perform an API call with Alamofire
     static func call(with ingredients: String) {
-        Alamofire.request(getRecipies(with: ingredients)).responseJSON { response in
+        Alamofire.request(getRecipes(with: ingredients)).responseJSON { response in
             response.result.ifFailure {
                 print("no data")
             }
@@ -45,7 +45,7 @@ struct YummlyService {
 
 extension YummlyService {
     /// Create a  URLRequest to access Yummly resources
-    static private func getRecipies(with ingredients: String) -> URLRequest {
+    static private func getRecipes(with ingredients: String) -> URLRequest {
         let ingredients = ingredients.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)
         let completeURL = APIAssets.endpoint
             + APIAssets.credentials
@@ -64,11 +64,11 @@ extension YummlyService {
 
 extension YummlyService {
     /// Decode data
-    @discardableResult static func parse(_ data: Data) -> Recipies {
-        let recipe = Recipies(matches: [], totalMatchCount: 0)
+    @discardableResult static func parse(_ data: Data) -> Recipes {
+        let recipe = Recipes(matches: [], totalMatchCount: 0)
 
         do {
-            let recipe = try JSONDecoder().decode(Recipies.self, from: data)
+            let recipe = try JSONDecoder().decode(Recipes.self, from: data)
             print("\(recipe.matches)\n\(recipe.matches.count)\n\(recipe.totalMatchCount)")
             print(":::::::::\(recipe.matches[9].id)")
             return recipe

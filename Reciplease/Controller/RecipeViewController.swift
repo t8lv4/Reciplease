@@ -8,11 +8,11 @@
 
 import UIKit
 
-/// List recipies
+/// List recipes
 class RecipeViewController: UIViewController {
     /// Ingredients list from IngredientViewController
     var ingredientsList = ""
-    /// Display recipies
+    /// Display recipes
     @IBOutlet weak var tableView: UITableView!
 
     override func viewDidLoad() {
@@ -40,7 +40,7 @@ extension RecipeViewController: UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1// recipies count from API
+        return 1// recipes count from API
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

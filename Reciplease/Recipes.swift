@@ -1,5 +1,5 @@
 //
-//  Recipe.swift
+//  Recipes.swift
 //  
 //
 //  Created by Morgan on 05/12/2018.
@@ -8,7 +8,7 @@
 import Foundation
 
 /// Mirror Yummly's JSON structure
-struct Recipies: Decodable {
+struct Recipes: Decodable {
     let matches: [Recipe]
     let totalMatchCount: Int
 
