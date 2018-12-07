@@ -81,7 +81,7 @@
                                                     <rect key="frame" x="25" y="11" width="325" height="72"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" text="Recipe Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wjF-DZ-agG">
-                                                            <rect key="frame" x="98" y="9" width="167.5" height="26"/>
+                                                            <rect key="frame" x="98" y="9" width="167.5" height="25.5"/>
                                                             <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="20"/>
                                                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
@@ -146,13 +146,16 @@
                                             <outlet property="containerView" destination="8Ti-Jk-Bc7" id="9U2-Ow-MMZ"/>
                                             <outlet property="ingredientLabel" destination="anq-X9-7SC" id="fj0-9u-jCz"/>
                                             <outlet property="nameLabel" destination="wjF-DZ-agG" id="nm2-X9-Xhw"/>
-                                            <outlet property="noteLabel" destination="H9D-4X-9UB" id="mt9-r4-uUv"/>
                                             <outlet property="ratingLabel" destination="H9D-4X-9UB" id="69T-5r-wLt"/>
                                             <outlet property="recipeImage" destination="jLf-8J-Lf8" id="HT1-AR-G2q"/>
                                             <outlet property="timeLabel" destination="h24-pf-DMx" id="fqx-Mu-MeM"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="bQ5-rD-ZQw" id="CCK-1C-2vC"/>
+                                    <outlet property="delegate" destination="bQ5-rD-ZQw" id="gv1-cc-lHW"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -230,7 +233,7 @@
                                                 </state>
                                                 <connections>
                                                     <action selector="doneButton:" destination="3j1-cn-ldp" eventType="touchUpInside" id="3se-Rj-BOP"/>
-                                                    <segue destination="bQ5-rD-ZQw" kind="show" id="5zf-TX-aab"/>
+                                                    <segue destination="bQ5-rD-ZQw" kind="show" identifier="showRecipeVC" id="5zf-TX-aab"/>
                                                 </connections>
                                             </button>
                                         </subviews>

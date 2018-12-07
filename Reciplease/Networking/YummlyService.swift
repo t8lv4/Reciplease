@@ -11,34 +11,25 @@ import Alamofire
 
 /// Call Yummly API
 struct YummlyService {
-    /// Perform an API call with Alamofire
-    static func call(with ingredients: String) {
+    typealias Callback = (Bool, Any?) -> Void
+    /**
+     Perform an API call with Alamofire
+
+     - Parameters:
+        - ingredients: The user input
+        - callback: Provide the state of the API response
+ */
+    static func call(with ingredients: String, callback: @escaping Callback) {
         Alamofire.request(getRecipes(with: ingredients)).responseJSON { response in
+            print(response.result.description)
             response.result.ifFailure {
+                callback(false, nil)
                 print("no data")
             }
             response.result.ifSuccess {
                 let resource = parse(response.data!)
+                callback(true, resource)
             }
-
-
-//            switch response.result {
-//            case .failure( _) : break
-//            // alert user
-//            case .success( _) :
-//                if let json = response.result.value as? [String: Any] {
-//                    print("JSON: \(json)")
-//                }
-//            }
-
-            //  switch response.result == case failure ?
-            // response.result.value == dictionnaire [String: Any]?
-
-//            if let data = response.data, let utf8Text = String(data: data, encoding: .utf8) {
-//                print("Data: \(utf8Text)") // original server data as UTF8 string
-//            }
-
-//            let resource = parse(response.data!)
         }
     }
 }
@@ -56,21 +47,17 @@ extension YummlyService {
         var request = URLRequest(url: url)
         request.httpMethod = HTTPMethod.get.rawValue
 
-        print(completeURL)
-
         return request
     }
 }
 
 extension YummlyService {
-    /// Decode data
-    @discardableResult static func parse(_ data: Data) -> Recipes {
+    /// Decode data, return recipes
+    static func parse(_ data: Data) -> Recipes {
         let recipe = Recipes(matches: [], totalMatchCount: 0)
 
         do {
             let recipe = try JSONDecoder().decode(Recipes.self, from: data)
-            print("\(recipe.matches)\n\(recipe.matches.count)\n\(recipe.totalMatchCount)")
-            print(":::::::::\(recipe.matches[9].id)")
             return recipe
         } catch DecodingError.dataCorrupted(let context) {
             print(context.debugDescription)

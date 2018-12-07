@@ -9,15 +9,15 @@ import Foundation
 
 /// Mirror Yummly's JSON structure
 struct Recipes: Decodable {
-    let matches: [Recipe]
-    let totalMatchCount: Int
+    var matches: [Recipe]
+    var totalMatchCount: Int
 
     struct Recipe: Decodable {
-        let recipeName: String
-        let id: String
-        let rating: Int?
-        let totalTimeInSeconds: Int?
-        let smallImageUrls: [String]?
+        var recipeName: String
+        var id: String
+        var rating: Int?
+        var totalTimeInSeconds: Int?
+        var smallImageUrls: [String]?
     }
 }
 

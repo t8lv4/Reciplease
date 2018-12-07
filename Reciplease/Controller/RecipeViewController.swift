@@ -12,13 +12,13 @@ import UIKit
 class RecipeViewController: UIViewController {
     /// Ingredients list from IngredientViewController
     var ingredientsList = ""
+    /// A recipes array
+    var recipes = Recipes(matches: [], totalMatchCount: 0)
     /// Display recipes
     @IBOutlet weak var tableView: UITableView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        print(ingredientsList)
     }
 }
 
@@ -27,8 +27,16 @@ class RecipeViewController: UIViewController {
 extension RecipeViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        tableView.reloadData()
 
-        YummlyService.call(with: ingredientsList)
+        YummlyService.call(with: ingredientsList) { (success, resource) in
+            if success, let resource = resource {
+                self.recipes = resource as! Recipes
+                print(self.recipes.matches[9].recipeName)
+            } else {
+                // alert user
+            }
+        }
     }
 }
 
@@ -40,7 +48,7 @@ extension RecipeViewController: UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1// recipes count from API
+        return recipes.matches.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -48,7 +56,12 @@ extension RecipeViewController: UITableViewDataSource {
             return UITableViewCell()
         }
 
-        // call cell.configure(imag:name:ingredients:rating:time)
+        let item = recipes.matches[indexPath.row]
+        cell.configure(image: Image.defaultThumbnail.rawValue,
+                       name: item.recipeName,
+                       ingredients: ingredientsList,
+                       rating: String(item.rating!),
+                       time: String(item.totalTimeInSeconds!))
         
         return cell
     }

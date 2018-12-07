@@ -33,11 +33,14 @@ class IngredientViewController: UIViewController {
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let recipeVC = segue.destination as? RecipeViewController {
-            recipeVC.ingredientsList = userInput.catchList(of: ingredientTextView.text)
+        if segue.identifier == UIID.segue.showRecipeVC {
+            if let recipeVC = segue.destination as? RecipeViewController {
+                recipeVC.ingredientsList = userInput.catchList(of: ingredientTextView.text)
+            }
         }
     }
 }
+
 
 // MARK: - textView
 
