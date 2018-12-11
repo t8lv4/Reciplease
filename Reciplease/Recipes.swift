@@ -20,4 +20,3 @@ struct Recipes: Decodable {
         var smallImageUrls: [String]?
     }
 }
-

@@ -78,7 +78,7 @@
                                                     <rect key="frame" x="25" y="11" width="325" height="72"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" text="Recipe Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wjF-DZ-agG">
-                                                            <rect key="frame" x="98" y="9" width="176.5" height="25.5"/>
+                                                            <rect key="frame" x="98" y="9" width="186" height="25.5"/>
                                                             <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="20"/>
                                                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
@@ -93,7 +93,7 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" text="35'" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h24-pf-DMx" userLabel="Time Label">
-                                                            <rect key="frame" x="289.5" y="48" width="24.5" height="16.5"/>
+                                                            <rect key="frame" x="299" y="48" width="15" height="16.5"/>
                                                             <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="12"/>
                                                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
@@ -106,7 +106,7 @@
                                                             </constraints>
                                                         </imageView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" text="ingredients" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="anq-X9-7SC">
-                                                            <rect key="frame" x="98" y="50" width="176.5" height="13"/>
+                                                            <rect key="frame" x="98" y="50" width="186" height="13"/>
                                                             <fontDescription key="fontDescription" name="SourceSansPro-Light" family="Source Sans Pro" pointSize="10"/>
                                                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
@@ -119,7 +119,7 @@
                                                         <constraint firstItem="h24-pf-DMx" firstAttribute="top" secondItem="H9D-4X-9UB" secondAttribute="bottom" constant="14.5" id="6mw-LW-2vL"/>
                                                         <constraint firstItem="wjF-DZ-agG" firstAttribute="leading" secondItem="jLf-8J-Lf8" secondAttribute="trailing" constant="4" id="7tM-GB-01B"/>
                                                         <constraint firstItem="anq-X9-7SC" firstAttribute="leading" secondItem="wjF-DZ-agG" secondAttribute="leading" id="ARn-cR-H3g"/>
-                                                        <constraint firstItem="anq-X9-7SC" firstAttribute="width" secondItem="wjF-DZ-agG" secondAttribute="width" id="Bnl-1O-GiH"/>
+                                                        <constraint firstItem="anq-X9-7SC" firstAttribute="width" secondItem="wjF-DZ-agG" secondAttribute="width" priority="750" id="Bnl-1O-GiH"/>
                                                         <constraint firstItem="h24-pf-DMx" firstAttribute="height" secondItem="H9D-4X-9UB" secondAttribute="height" id="CDp-9c-fn3"/>
                                                         <constraint firstAttribute="bottom" secondItem="h24-pf-DMx" secondAttribute="bottom" constant="7.5" id="DwX-4v-Tdo"/>
                                                         <constraint firstItem="jLf-8J-Lf8" firstAttribute="leading" secondItem="8Ti-Jk-Bc7" secondAttribute="leading" constant="4" id="HW8-kM-WOq"/>
@@ -129,7 +129,7 @@
                                                         <constraint firstAttribute="trailing" secondItem="H9D-4X-9UB" secondAttribute="trailing" constant="11" id="e8W-tH-1bS"/>
                                                         <constraint firstItem="jLf-8J-Lf8" firstAttribute="centerY" secondItem="8Ti-Jk-Bc7" secondAttribute="centerY" id="ekZ-Mn-xNp"/>
                                                         <constraint firstItem="anq-X9-7SC" firstAttribute="trailing" secondItem="wjF-DZ-agG" secondAttribute="trailing" id="iDf-18-Kse"/>
-                                                        <constraint firstItem="H9D-4X-9UB" firstAttribute="leading" secondItem="wjF-DZ-agG" secondAttribute="trailing" constant="15" id="k9V-Ly-pP2"/>
+                                                        <constraint firstItem="H9D-4X-9UB" firstAttribute="leading" secondItem="wjF-DZ-agG" secondAttribute="trailing" priority="750" constant="15" id="k9V-Ly-pP2"/>
                                                         <constraint firstItem="H9D-4X-9UB" firstAttribute="top" secondItem="8Ti-Jk-Bc7" secondAttribute="top" constant="17" id="n3L-KO-bJL"/>
                                                     </constraints>
                                                 </view>

@@ -11,7 +11,7 @@ import Foundation
 /// Structure ingredients
 struct Ingredient {
     /**
-     Catch a user input list of ingredients
+     Format a user input list of ingredients
      - Parameters:
         - ingredients: The user input
 

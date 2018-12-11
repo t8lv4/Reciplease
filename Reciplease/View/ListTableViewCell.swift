@@ -41,6 +41,6 @@ extension ListTableViewCell {
         nameLabel.text = name
         ingredientLabel.text = ingredients.replacingOccurrences(of: " ", with: ", ")
         ratingLabel.text = rating + " ⭐️"
-        timeLabel.text = String((Int(time)! / 60)) + " '"
+        timeLabel.text = time + " '"
     }
 }

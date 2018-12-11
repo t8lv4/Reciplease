@@ -33,6 +33,7 @@ extension RecipeViewController {
 
     /// Call Yummly API with an ingredients list
     func requestRecipes() {
+        print(ingredientsList)
         YummlyService.call(with: ingredientsList) { (success, resource) in
             if success, let resource = resource {
                 self.recipes = resource as! Recipes
