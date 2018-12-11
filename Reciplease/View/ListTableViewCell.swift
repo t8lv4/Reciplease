@@ -39,8 +39,8 @@ extension ListTableViewCell {
     func configure(image: String, name: String, ingredients: String, rating: String, time: String) {
         recipeImage.image = UIImage(named: image)
         nameLabel.text = name
-        ingredientLabel.text = ingredients
+        ingredientLabel.text = ingredients.replacingOccurrences(of: " ", with: ", ")
         ratingLabel.text = rating + " ⭐️"
-        timeLabel.text = time + " ⏲"
+        timeLabel.text = String((Int(time)! / 60)) + " '"
     }
 }
