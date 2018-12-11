@@ -85,6 +85,9 @@
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="250" text="5 ⭐️" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H9D-4X-9UB" userLabel="Rating Label">
                                                             <rect key="frame" x="280.5" y="17" width="33.5" height="16.5"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" priority="999" constant="33.5" id="WCR-37-4ra"/>
+                                                            </constraints>
                                                             <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="12"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
@@ -99,6 +102,7 @@
                                                             <rect key="frame" x="4" y="6" width="90" height="60"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" secondItem="jLf-8J-Lf8" secondAttribute="height" multiplier="3:2" id="VyW-2Y-SIN"/>
+                                                                <constraint firstAttribute="width" constant="90" id="idL-7X-djO"/>
                                                             </constraints>
                                                         </imageView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" text="ingredients" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="anq-X9-7SC">
@@ -126,7 +130,7 @@
                                                         <constraint firstAttribute="trailing" secondItem="H9D-4X-9UB" secondAttribute="trailing" constant="11" id="e8W-tH-1bS"/>
                                                         <constraint firstItem="jLf-8J-Lf8" firstAttribute="centerY" secondItem="8Ti-Jk-Bc7" secondAttribute="centerY" id="ekZ-Mn-xNp"/>
                                                         <constraint firstItem="anq-X9-7SC" firstAttribute="trailing" secondItem="wjF-DZ-agG" secondAttribute="trailing" id="iDf-18-Kse"/>
-                                                        <constraint firstItem="H9D-4X-9UB" firstAttribute="leading" secondItem="wjF-DZ-agG" secondAttribute="trailing" constant="15" id="k9V-Ly-pP2"/>
+                                                        <constraint firstItem="H9D-4X-9UB" firstAttribute="leading" secondItem="wjF-DZ-agG" secondAttribute="trailing" priority="999" constant="15" id="k9V-Ly-pP2"/>
                                                         <constraint firstItem="H9D-4X-9UB" firstAttribute="top" secondItem="8Ti-Jk-Bc7" secondAttribute="top" constant="17" id="n3L-KO-bJL"/>
                                                         <constraint firstItem="h24-pf-DMx" firstAttribute="trailing" secondItem="H9D-4X-9UB" secondAttribute="trailing" id="vWR-Cx-Fjh"/>
                                                     </constraints>
