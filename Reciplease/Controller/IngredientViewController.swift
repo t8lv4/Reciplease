@@ -34,9 +34,8 @@ class IngredientViewController: UIViewController {
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == UIID.segue.showRecipeVC {
-            if let recipeVC = segue.destination as? RecipeViewController {
-                recipeVC.ingredientsList = userInput.catchList(of: ingredientTextView.text)
-            }
+            let showRecipeVC = segue.destination as! RecipeViewController
+            showRecipeVC.ingredientsList = userInput.formatList(of: ingredientTextView.text, with: ("\n", " "))
         }
     }
 }

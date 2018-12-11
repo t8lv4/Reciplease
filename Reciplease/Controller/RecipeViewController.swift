@@ -27,12 +27,16 @@ class RecipeViewController: UIViewController {
 extension RecipeViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        tableView.reloadData()
 
+        requestRecipes()
+    }
+
+    /// Call Yummly API with an ingredients list
+    func requestRecipes() {
         YummlyService.call(with: ingredientsList) { (success, resource) in
             if success, let resource = resource {
                 self.recipes = resource as! Recipes
-                print(self.recipes.matches[9].recipeName)
+                self.tableView.reloadData()
             } else {
                 // alert user
             }
@@ -52,9 +56,9 @@ extension RecipeViewController: UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "listCell", for: indexPath) as? ListTableViewCell else {
-            return UITableViewCell()
-        }
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: UIID.cell.listCell,
+                                                       for: indexPath) as? ListTableViewCell
+            else { return UITableViewCell() }
 
         let item = recipes.matches[indexPath.row]
         cell.configure(image: Image.defaultThumbnail.rawValue,

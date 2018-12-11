@@ -14,4 +14,17 @@ enum UIID {
     enum segue {
         static let showRecipeVC = "showRecipeVC"
     }
+
+    /// List view controllers IDs
+    enum ViewController {
+        static let tabBarController = "tabBarController"
+        static let recipeNavigation = "recipeNavigation"
+        static let favoriteNavigation = "favoriteNavigation"
+        static let ingredient = "ingredient"
+        static let recipe = "recipe"
+    }
+
+    enum cell {
+        static let listCell = "listCell"
+    }
 }

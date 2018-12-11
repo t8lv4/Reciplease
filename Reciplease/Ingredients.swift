@@ -18,8 +18,8 @@ struct Ingredient {
      - Returns:
         A string ready to be encoded as a url parameter (cf YummlyService)
      */
-    func catchList(of ingredients: String) -> String {
-        let ingredientsList = ingredients.replacingOccurrences(of: "\n", with: " ")
+    func formatList(of ingredients: String, with occurences: (String, String)) -> String {
+        let ingredientsList = ingredients.replacingOccurrences(of: occurences.0, with: occurences.1)
         return ingredientsList
     }
 }
