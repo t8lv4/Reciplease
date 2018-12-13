@@ -12,7 +12,7 @@ import UIKit
 class IngredientViewController: UIViewController {
     // MARK: - Properties
 
-    let userInput = Ingredient()
+    var userInput = String()
 
     /// Reference Clear and Done buttons
     @IBOutlet weak var buttons: UIButton!
@@ -35,7 +35,8 @@ class IngredientViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == UIID.segue.showRecipeVC {
             let showRecipeVC = segue.destination as! RecipeViewController
-            showRecipeVC.ingredientsList = userInput.formatList(of: ingredientTextView.text, with: ("\n", " "))
+            showRecipeVC.ingredients = ingredientTextView.text
+            print(ingredientTextView.text)
         }
     }
 }

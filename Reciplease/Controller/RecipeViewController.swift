@@ -10,7 +10,9 @@ import UIKit
 
 /// List recipes
 class RecipeViewController: UIViewController {
-    /// Ingredients list from IngredientViewController
+    /// List of ingredients from IngredientViewController
+    var ingredients = String()
+    /// Yummly search parameter
     var ingredientsList = ""
     /// A recipes array
     var recipes = Recipes(matches: [], totalMatchCount: 0)
@@ -33,7 +35,7 @@ extension RecipeViewController {
 
     /// Call Yummly API with an ingredients list
     func requestRecipes() {
-        print(ingredientsList)
+        ingredientsList = ingredients.format(with: " ")
         YummlyService.call(with: ingredientsList) { (success, resource) in
             if success, let resource = resource {
                 self.recipes = resource as! Recipes
@@ -62,11 +64,12 @@ extension RecipeViewController: UITableViewDataSource {
             else { return UITableViewCell() }
 
         let item = recipes.matches[indexPath.row]
+        ingredientsList = ingredients.format(with: ", ") + "..."
         cell.configure(image: Image.defaultThumbnail.rawValue,
                        name: item.recipeName,
                        ingredients: ingredientsList,
                        rating: String(item.rating!),
-                       time: String(item.totalTimeInSeconds!))
+                       time: String(item.totalTimeInSeconds! / 60))
         
         return cell
     }
