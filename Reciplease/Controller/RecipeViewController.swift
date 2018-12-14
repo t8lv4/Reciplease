@@ -63,13 +63,13 @@ extension RecipeViewController: UITableViewDataSource {
                                                        for: indexPath) as? ListTableViewCell
             else { return UITableViewCell() }
 
-        let item = recipes.matches[indexPath.row]
+        let recipe = recipes.matches[indexPath.row]
         ingredientsList = ingredients.format(with: ", ") + "..."
-        cell.configure(image: Image.defaultThumbnail.rawValue,
-                       name: item.recipeName,
+        cell.configure(image: UIImage(imageLiteralResourceName: Image.defaultThumbnail.rawValue),
+                       name: recipe.recipeName,
                        ingredients: ingredientsList,
-                       rating: String(item.rating!),
-                       time: String(item.totalTimeInSeconds! / 60))
+                       rating: String(recipe.rating!),
+                       time: String(recipe.totalTimeInSeconds! / 60))
         
         return cell
     }

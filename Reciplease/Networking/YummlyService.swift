@@ -24,7 +24,6 @@ struct YummlyService {
             print(response.result.description)
             response.result.ifFailure {
                 callback(false, nil)
-                print("no data")
             }
             response.result.ifSuccess {
                 let resource = parse(response.data!)
