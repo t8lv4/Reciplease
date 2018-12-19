@@ -22,6 +22,7 @@ enum UIID {
         static let favoriteNavigation = "favoriteNavigation"
         static let ingredient = "ingredient"
         static let recipe = "recipe"
+        static let detail = "detail"
     }
 
     enum cell {

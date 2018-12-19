@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		900D093F21C7FF8B009EB7BA /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 900D093E21C7FF8B009EB7BA /* DetailViewController.swift */; };
 		900D0EA421AD5F9300AE536C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 900D0EA321AD5F9300AE536C /* Assets.xcassets */; };
 		9030216A21AD661600FFAAD8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 90981DC721AC076200DD3C86 /* LaunchScreen.storyboard */; };
 		903E83AE21B5755C00D687CC /* ListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 903E83AD21B5755C00D687CC /* ListTableViewCell.swift */; };
@@ -31,6 +32,7 @@
 		1B231B05EE2A91CE401335CD /* Pods_Reciplease.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Reciplease.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		75844881487949A9F89BEEB9 /* Pods-Reciplease.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Reciplease.release.xcconfig"; path = "Pods/Target Support Files/Pods-Reciplease/Pods-Reciplease.release.xcconfig"; sourceTree = "<group>"; };
 		7C59ED8A262027E360A5C44A /* Pods-Reciplease.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Reciplease.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Reciplease/Pods-Reciplease.debug.xcconfig"; sourceTree = "<group>"; };
+		900D093E21C7FF8B009EB7BA /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		900D0EA321AD5F9300AE536C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		903E83AD21B5755C00D687CC /* ListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListTableViewCell.swift; sourceTree = "<group>"; };
 		904CC2F421B6C840003A117A /* YummlyService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YummlyService.swift; sourceTree = "<group>"; };
@@ -79,6 +81,7 @@
 			children = (
 				907267DF21ADAE30008AE480 /* IngredientViewController.swift */,
 				90E8A41021AE949B005D3751 /* RecipeViewController.swift */,
+				900D093E21C7FF8B009EB7BA /* DetailViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -294,6 +297,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				900D093F21C7FF8B009EB7BA /* DetailViewController.swift in Sources */,
 				90E8A41121AE949B005D3751 /* RecipeViewController.swift in Sources */,
 				90981DBF21AC076100DD3C86 /* AppDelegate.swift in Sources */,
 				904CC2F721B6C88A003A117A /* APIAssets.swift in Sources */,

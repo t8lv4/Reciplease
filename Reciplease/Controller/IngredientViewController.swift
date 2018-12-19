@@ -36,7 +36,6 @@ class IngredientViewController: UIViewController {
         if segue.identifier == UIID.segue.showRecipeVC {
             let showRecipeVC = segue.destination as! RecipeViewController
             showRecipeVC.ingredients = ingredientTextView.text
-            print(ingredientTextView.text)
         }
     }
 }

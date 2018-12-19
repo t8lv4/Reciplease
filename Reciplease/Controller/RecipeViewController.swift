@@ -34,9 +34,9 @@ extension RecipeViewController {
     }
 
     /// Call Yummly API with an ingredients list
-    func requestRecipes() {
+    private func requestRecipes() {
         ingredientsList = ingredients.format(with: " ")
-        YummlyService.call(with: ingredientsList) { (success, resource) in
+        YummlyService.getRecipes(with: ingredientsList) { (success, resource) in
             if success, let resource = resource {
                 self.recipes = resource as! Recipes
                 self.tableView.reloadData()
@@ -64,13 +64,31 @@ extension RecipeViewController: UITableViewDataSource {
             else { return UITableViewCell() }
 
         let recipe = recipes.matches[indexPath.row]
-        ingredientsList = ingredients.format(with: ", ") + "..."
-        cell.configure(image: UIImage(imageLiteralResourceName: Image.defaultThumbnail.rawValue),
+        ingredientsList = ingredients.format(with: ", ") + ",..."
+        cell.configure(image: requestThumbnails(from: recipe.smallImageUrls),
                        name: recipe.recipeName,
                        ingredients: ingredientsList,
                        rating: String(recipe.rating!),
                        time: String(recipe.totalTimeInSeconds! / 60))
         
         return cell
+    }
+
+    private func requestThumbnails(from imageLocation: [String]?) -> UIImage {
+        var thumbnail = UIImage()
+
+        YummlyService.getThumbnail(from: imageLocation, callback: { (success, resource) in
+                if success, let resource = resource {
+                    thumbnail = resource as! UIImage
+                    print("!!!!!!!!\(thumbnail)")
+                } else {
+                    thumbnail = UIImage(imageLiteralResourceName: Image.defaultThumbnail.rawValue)
+                    print("????????\(thumbnail)")
+                }
+
+            })
+        
+        print("kkkkkkkkkkk\(thumbnail)")
+        return thumbnail
     }
 }
