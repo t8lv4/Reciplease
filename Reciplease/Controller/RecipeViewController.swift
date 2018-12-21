@@ -76,7 +76,7 @@ extension RecipeViewController: UITableViewDataSource {
 
         var timeString: String {
             if let time = recipe.totalTimeInSeconds {
-                return String(time / 60) + " '"
+                return String(time / 60) + "'"
             } else {
                 return "n/a"
             }
@@ -94,21 +94,21 @@ extension RecipeViewController: UITableViewDataSource {
         return cell
     }
 
-    private func requestThumbnails(from imageLocation: [String]?) -> UIImage {
-        var thumbnail = UIImage()
-
-        YummlyService.getThumbnail(from: imageLocation, callback: { (success, resource) in
-                if success, let resource = resource {
-                    thumbnail = resource as! UIImage
-                    print("!!!!!!!!\(thumbnail)")
-                } else {
-                    thumbnail = UIImage(imageLiteralResourceName: Image.defaultThumbnail.rawValue)
-                    print("????????\(thumbnail)")
-                }
-
-            })
-        
-        print("kkkkkkkkkkk\(thumbnail)")
-        return thumbnail
-    }
+//    private func requestThumbnails(from imageLocation: [String]?) -> UIImage {
+//        var thumbnail = UIImage()
+//
+//        YummlyService.getThumbnail(from: imageLocation, callback: { (success, resource) in
+//                if success, let resource = resource {
+//                    thumbnail = resource as! UIImage
+//                    print("!!!!!!!!\(thumbnail)")
+//                } else {
+//                    thumbnail = UIImage(imageLiteralResourceName: Image.defaultThumbnail.rawValue)
+//                    print("????????\(thumbnail)")
+//                }
+//
+//            })
+//        
+//        print("kkkkkkkkkkk\(thumbnail)")
+//        return thumbnail
+//    }
 }
