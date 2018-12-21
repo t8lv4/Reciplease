@@ -40,7 +40,7 @@ extension ListTableViewCell {
         recipeImage.image = image
         nameLabel.text = name
         ingredientLabel.text = ingredients
-        ratingLabel.text = rating + " ⭐️"
-        timeLabel.text = time + " '"
+        ratingLabel.text = rating
+        timeLabel.text = time
     }
 }

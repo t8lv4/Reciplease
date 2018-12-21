@@ -64,12 +64,32 @@ extension RecipeViewController: UITableViewDataSource {
             else { return UITableViewCell() }
 
         let recipe = recipes.matches[indexPath.row]
-        ingredientsList = ingredients.format(with: ", ") + ",..."
-        cell.configure(image: requestThumbnails(from: recipe.smallImageUrls),
+        ingredientsList = ingredients.format(with: ", ") + ", ..."
+
+        var ratingString: String {
+            if let rating = recipe.rating {
+                return String(rating) + " ⭐️"
+            } else {
+                return "n/a"
+            }
+        }
+
+        var timeString: String {
+            if let time = recipe.totalTimeInSeconds {
+                return String(time / 60) + " '"
+            } else {
+                return "n/a"
+            }
+        }
+
+        cell.configure(image: UIImage(named: Image.defaultThumbnail.rawValue)!,
                        name: recipe.recipeName,
                        ingredients: ingredientsList,
-                       rating: String(recipe.rating!),
-                       time: String(recipe.totalTimeInSeconds! / 60))
+                       rating: ratingString,
+                       time: timeString)
+
+        // call image
+        // affecter image à cellule
         
         return cell
     }
