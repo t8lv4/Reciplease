@@ -9,7 +9,7 @@
 import UIKit
 
 class ListTableViewCell: UITableViewCell {
-    /// Name the recipe image
+    /// Recipe's image
     @IBOutlet weak var recipeImage: UIImageView!
     /// Contains recipe's name, ingredients, rating and preparation time
     @IBOutlet weak var containerView: UIView!

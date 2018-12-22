@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Nuke
 
 /// List recipes
 class RecipeViewController: UIViewController {
@@ -60,12 +61,17 @@ extension RecipeViewController: UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: UIID.cell.listCell,
-                                                       for: indexPath) as? ListTableViewCell
-            else { return UITableViewCell() }
-
+                                                       for: indexPath) as? ListTableViewCell else { return UITableViewCell() }
         let recipe = recipes.matches[indexPath.row]
         ingredientsList = ingredients.format(with: ", ") + ", ..."
 
+        configureCell(for: cell, and: recipe, with: ingredientsList)
+        getThumbnail(for: cell, and: recipe)
+
+        return cell
+    }
+
+    private func configureCell(for cell: ListTableViewCell, and recipe: Recipes.Recipe, with ingredients: String) {
         var ratingString: String {
             if let rating = recipe.rating {
                 return String(rating) + " ⭐️"
@@ -82,33 +88,22 @@ extension RecipeViewController: UITableViewDataSource {
             }
         }
 
-        cell.configure(image: UIImage(named: Image.defaultThumbnail.rawValue)!,
+        cell.configure(image: .init(),
                        name: recipe.recipeName,
                        ingredients: ingredientsList,
                        rating: ratingString,
                        time: timeString)
-
-        // call image
-        // affecter image à cellule
-        
-        return cell
     }
 
-//    private func requestThumbnails(from imageLocation: [String]?) -> UIImage {
-//        var thumbnail = UIImage()
-//
-//        YummlyService.getThumbnail(from: imageLocation, callback: { (success, resource) in
-//                if success, let resource = resource {
-//                    thumbnail = resource as! UIImage
-//                    print("!!!!!!!!\(thumbnail)")
-//                } else {
-//                    thumbnail = UIImage(imageLiteralResourceName: Image.defaultThumbnail.rawValue)
-//                    print("????????\(thumbnail)")
-//                }
-//
-//            })
-//        
-//        print("kkkkkkkkkkk\(thumbnail)")
-//        return thumbnail
-//    }
+    private func getThumbnail(for cell: ListTableViewCell, and recipe: Recipes.Recipe) {
+        let url = URL(string: recipe.smallImageUrls![0])!
+        let options = ImageLoadingOptions(
+            placeholder: UIImage(named: Image.defaultThumbnail.rawValue),
+            transition: .fadeIn(duration: 0.5)
+        )
+
+        Nuke.loadImage(with: url,
+                       options: options,
+                       into: cell.recipeImage)
+    }
 }
