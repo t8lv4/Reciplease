@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import Nuke
 
 /// List recipes
 class RecipeViewController: UIViewController {
@@ -48,7 +47,7 @@ extension RecipeViewController {
     }
 }
 
-// MARK: - Table View
+// MARK: - Table View Data Source
 
 extension RecipeViewController: UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -66,26 +65,25 @@ extension RecipeViewController: UITableViewDataSource {
         ingredientsList = ingredients.format(with: ", ") + ", ..."
 
         configureCell(for: cell, and: recipe, with: ingredientsList)
-        getThumbnail(for: cell, and: recipe)
+        YummlyService.getThumbnail(for: cell, and: recipe)
 
         return cell
     }
 
+    /**
+     Configure custom cell
+
+     - parameter cell: The cell to configure
+     - parameter recipe: Hold recipes image, rating and time values to display
+     - parameter ingredients: The ingredients list
+     */
     private func configureCell(for cell: ListTableViewCell, and recipe: Recipes.Recipe, with ingredients: String) {
         var ratingString: String {
-            if let rating = recipe.rating {
-                return String(rating) + " ⭐️"
-            } else {
-                return "n/a"
-            }
+            return Unwrap.unwrap(.rating, for: recipe)
         }
 
         var timeString: String {
-            if let time = recipe.totalTimeInSeconds {
-                return String(time / 60) + "'"
-            } else {
-                return "n/a"
-            }
+            return Unwrap.unwrap(.time, for: recipe)
         }
 
         cell.configure(image: .init(),
@@ -93,17 +91,5 @@ extension RecipeViewController: UITableViewDataSource {
                        ingredients: ingredientsList,
                        rating: ratingString,
                        time: timeString)
-    }
-
-    private func getThumbnail(for cell: ListTableViewCell, and recipe: Recipes.Recipe) {
-        let url = URL(string: recipe.smallImageUrls![0])!
-        let options = ImageLoadingOptions(
-            placeholder: UIImage(named: Image.defaultThumbnail.rawValue),
-            transition: .fadeIn(duration: 0.5)
-        )
-
-        Nuke.loadImage(with: url,
-                       options: options,
-                       into: cell.recipeImage)
     }
 }

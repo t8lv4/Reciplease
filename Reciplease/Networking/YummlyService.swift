@@ -8,6 +8,7 @@
 
 import Foundation
 import Alamofire
+import Nuke
 
 // MARK: - Call Yummly
 
@@ -33,34 +34,27 @@ struct YummlyService {
             }
         }
     }
+}
 
+//MARK: - Get Thumbnail
+
+extension YummlyService {
     /**
-     Call Yummly to get recipes thumbnails
+     Call to download the thumnail linked to a recipe
 
-     - Parameters:
-        - location: Thumbnails URLs
-        - callback: Provide the state of the network call
+     - parameter cell: Display the image
+     - parameter recipe: The recipe associated with the image
      */
-    static func getThumbnail(from location: [String]?, callback: @escaping Callback) {
-        guard let location = location?[0] else {
-            callback(false, nil)
-            return
-        }
+    static func getThumbnail(for cell: ListTableViewCell, and recipe: Recipes.Recipe) {
+        let url = URL(string: recipe.smallImageUrls![0])!
+        let options = ImageLoadingOptions(
+            placeholder: UIImage(named: Image.defaultThumbnail.rawValue),
+            transition: .fadeIn(duration: 0.5)
+        )
 
-        let url = URL(string: location)!
-        print("thumbnails urls:\(url)")
-        
-        Alamofire.request(url).responseData { response in
-          print("getThumbnail result: \(response.result.description)")
-            response.result.ifFailure {
-                callback(false, nil)
-            }
-            response.result.ifSuccess {
-                let resource = UIImage(data: response.data!)
-                print("resource: \(String(describing: resource))")
-                callback(true, resource)
-            }
-        }
+        Nuke.loadImage(with: url,
+                       options: options,
+                       into: cell.recipeImage)
     }
 }
 

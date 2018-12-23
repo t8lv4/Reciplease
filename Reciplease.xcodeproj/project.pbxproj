@@ -15,6 +15,7 @@
 		904CC2F721B6C88A003A117A /* APIAssets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 904CC2F621B6C88A003A117A /* APIAssets.swift */; };
 		904CC2FC21B6D141003A117A /* Credentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = 904CC2FB21B6D141003A117A /* Credentials.swift */; };
 		905DB16821B91C4500EF4F83 /* Ingredients.swift in Sources */ = {isa = PBXBuildFile; fileRef = 905DB16721B91C4500EF4F83 /* Ingredients.swift */; };
+		906E4B0F21CFF94500106F66 /* Optional.swift in Sources */ = {isa = PBXBuildFile; fileRef = 906E4B0E21CFF94500106F66 /* Optional.swift */; };
 		9070221D21AD909A004D8BD1 /* SourceSansPro-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9070221B21AD909A004D8BD1 /* SourceSansPro-Light.otf */; };
 		9070221E21AD909A004D8BD1 /* SourceSansPro-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9070221C21AD909A004D8BD1 /* SourceSansPro-Regular.otf */; };
 		907267E021ADAE30008AE480 /* IngredientViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 907267DF21ADAE30008AE480 /* IngredientViewController.swift */; };
@@ -39,6 +40,7 @@
 		904CC2F621B6C88A003A117A /* APIAssets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIAssets.swift; sourceTree = "<group>"; };
 		904CC2FB21B6D141003A117A /* Credentials.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Credentials.swift; sourceTree = "<group>"; };
 		905DB16721B91C4500EF4F83 /* Ingredients.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ingredients.swift; sourceTree = "<group>"; };
+		906E4B0E21CFF94500106F66 /* Optional.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Optional.swift; sourceTree = "<group>"; };
 		9070221B21AD909A004D8BD1 /* SourceSansPro-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceSansPro-Light.otf"; sourceTree = "<group>"; };
 		9070221C21AD909A004D8BD1 /* SourceSansPro-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceSansPro-Regular.otf"; sourceTree = "<group>"; };
 		907267DF21ADAE30008AE480 /* IngredientViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = IngredientViewController.swift; path = ../Controller/IngredientViewController.swift; sourceTree = "<group>"; };
@@ -144,6 +146,7 @@
 		90CD56E421C2B95B00F192A2 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				906E4B0E21CFF94500106F66 /* Optional.swift */,
 				905DB16721B91C4500EF4F83 /* Ingredients.swift */,
 				90FE739A21B7F4DD009A3AE1 /* Recipes.swift */,
 			);
@@ -302,6 +305,7 @@
 				900D093F21C7FF8B009EB7BA /* DetailViewController.swift in Sources */,
 				90E8A41121AE949B005D3751 /* RecipeViewController.swift in Sources */,
 				90981DBF21AC076100DD3C86 /* AppDelegate.swift in Sources */,
+				906E4B0F21CFF94500106F66 /* Optional.swift in Sources */,
 				904CC2F721B6C88A003A117A /* APIAssets.swift in Sources */,
 				904CC2F521B6C840003A117A /* YummlyService.swift in Sources */,
 				907267E021ADAE30008AE480 /* IngredientViewController.swift in Sources */,
