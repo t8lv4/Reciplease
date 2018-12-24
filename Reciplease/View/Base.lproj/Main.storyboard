@@ -75,16 +75,16 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view alpha="0.80000000000000004" contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="8Ti-Jk-Bc7" userLabel="Container">
-                                                    <rect key="frame" x="25" y="11" width="364" height="72"/>
+                                                    <rect key="frame" x="25" y="11" width="325" height="72"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" text="Recipe Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wjF-DZ-agG">
-                                                            <rect key="frame" x="98" y="9" width="225" height="25.5"/>
+                                                            <rect key="frame" x="98" y="9" width="186" height="25.5"/>
                                                             <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="20"/>
                                                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="250" text="5 ⭐️" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H9D-4X-9UB" userLabel="Rating Label">
-                                                            <rect key="frame" x="328.5" y="17" width="24.5" height="16.5"/>
+                                                            <rect key="frame" x="289.5" y="17" width="24.5" height="16.5"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" priority="999" constant="27.5" id="WCR-37-4ra"/>
                                                             </constraints>
@@ -93,7 +93,7 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" text="35'" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h24-pf-DMx" userLabel="Time Label">
-                                                            <rect key="frame" x="338" y="48" width="15" height="16.5"/>
+                                                            <rect key="frame" x="299" y="48" width="15" height="16.5"/>
                                                             <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="12"/>
                                                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
@@ -106,7 +106,7 @@
                                                             </constraints>
                                                         </imageView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" text="ingredients" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="anq-X9-7SC">
-                                                            <rect key="frame" x="98" y="50" width="225" height="13"/>
+                                                            <rect key="frame" x="98" y="50" width="186" height="13"/>
                                                             <fontDescription key="fontDescription" name="SourceSansPro-Light" family="Source Sans Pro" pointSize="10"/>
                                                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
@@ -148,7 +148,6 @@
                                             <outlet property="ratingLabel" destination="H9D-4X-9UB" id="69T-5r-wLt"/>
                                             <outlet property="recipeImage" destination="jLf-8J-Lf8" id="HT1-AR-G2q"/>
                                             <outlet property="timeLabel" destination="h24-pf-DMx" id="fqx-Mu-MeM"/>
-                                            <segue destination="Yv1-io-HUc" kind="presentation" identifier="presentRecipeDetail" id="4Ug-HG-0xd"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -170,6 +169,7 @@
                     <navigationItem key="navigationItem" id="Vvx-IL-5MH"/>
                     <connections>
                         <outlet property="tableView" destination="Zj7-Im-hFn" id="5Dw-Ti-SeS"/>
+                        <segue destination="Yv1-io-HUc" kind="presentation" identifier="presentRecipeDetail" id="3BL-be-QiR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NIX-dp-GHT" userLabel="First Responder" sceneMemberID="firstResponder"/>

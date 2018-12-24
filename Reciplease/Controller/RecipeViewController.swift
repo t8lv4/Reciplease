@@ -38,7 +38,7 @@ extension RecipeViewController {
     /// Call Yummly API with an ingredients list
     private func requestRecipes() {
         ingredientsList = ingredients.format(with: " ")
-        YummlyService.getRecipes(with: ingredientsList) { (success, resource) in
+        YummlyService.searchRecipes(with: ingredientsList) { (success, resource) in
             if success, let resource = resource {
                 self.recipes = resource as! Recipes
                 self.tableView.reloadData()
@@ -103,6 +103,9 @@ extension RecipeViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let cell = tableView.cellForRow(at: indexPath)
         recipeID = recipes.matches[indexPath.row].id
+        
+        print("recipe id at selected row is: \(recipeID)")
+
         performSegue(withIdentifier: UIID.segue.presentRecipeDetail, sender: cell)
         tableView.deselectRow(at: indexPath, animated: false)
     }

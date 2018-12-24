@@ -31,3 +31,14 @@ class DetailViewController: UIViewController {
     }
 
 }
+
+extension DetailViewController {
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
+        print("detailed recipe id is: \(detailedRecipeID)")
+        YummlyService.getRecipe(with: detailedRecipeID) { (success, resource) in
+            print("resource is: \(String(describing: resource))")
+        }
+    }
+}

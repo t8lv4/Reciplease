@@ -22,14 +22,26 @@ struct YummlyService {
         - ingredients: The user input
         - callback: Provide the state of the API response
  */
-    static func getRecipes(with ingredients: String, callback: @escaping Callback) {
-        Alamofire.request(createURL(with: ingredients)).responseJSON { response in
+    static func searchRecipes(with ingredients: String, callback: @escaping Callback) {
+        Alamofire.request(createSearchURL(with: ingredients)).responseJSON { response in
             response.result.ifFailure {
                 callback(false, nil)
             }
             response.result.ifSuccess {
                 let resource = parse(response.data!)
                 callback(true, resource)
+            }
+        }
+    }
+
+    static func getRecipe(with recipeID: String, callback: @escaping Callback) {
+        Alamofire.request(createGetURL(with: recipeID)).responseJSON { response in
+            response.result.ifFailure {
+                callback(false, nil)
+            }
+            response.result.ifSuccess {
+//                let resource =
+                callback(true, response)
             }
         }
     }
@@ -57,17 +69,32 @@ extension YummlyService {
     }
 }
 
-// MARK: - Create URL
+// MARK: - Create URLs
 
 extension YummlyService {
     /// Create a  URLRequest to access Yummly resources
-    static private func createURL(with ingredients: String) -> URLRequest {
+    static private func createSearchURL(with ingredients: String) -> URLRequest {
         let ingredients = ingredients.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)
-        let completeURL = APIAssets.endpoint
+        let completeURL = APIAssets.searchEndpoint
             + APIAssets.credentials
             + APIAssets.search
             + ingredients!
 
+        return YummlyService.createRequest(with: completeURL)
+    }
+
+    static private func createGetURL(with recipeID: String) -> URLRequest {
+        let completeURL = APIAssets.getEndpoint
+            + recipeID
+            + APIAssets.get
+            + APIAssets.credentials
+
+        print(completeURL)
+
+        return YummlyService.createRequest(with: completeURL)
+    }
+
+    static private func createRequest(with completeURL: String) -> URLRequest {
         let url = URL(string: completeURL)!
         var request = URLRequest(url: url)
         request.httpMethod = HTTPMethod.get.rawValue
@@ -100,4 +127,8 @@ extension YummlyService {
 
         return recipe
     }
+
+//    static private func parseSearch(_ data: Data) -> Recipe {
+//
+//    }
 }
