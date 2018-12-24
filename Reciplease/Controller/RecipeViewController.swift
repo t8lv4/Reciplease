@@ -16,6 +16,8 @@ class RecipeViewController: UIViewController {
     var ingredientsList = ""
     /// A recipes array
     var recipes = Recipes(matches: [], totalMatchCount: 0)
+    /// Recipe ID
+    var recipeID = ""
     /// Display recipes
     @IBOutlet weak var tableView: UITableView!
 
@@ -61,6 +63,7 @@ extension RecipeViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: UIID.cell.listCell,
                                                        for: indexPath) as? ListTableViewCell else { return UITableViewCell() }
+
         let recipe = recipes.matches[indexPath.row]
         ingredientsList = ingredients.format(with: ", ") + ", ..."
 
@@ -79,11 +82,11 @@ extension RecipeViewController: UITableViewDataSource {
      */
     private func configureCell(for cell: ListTableViewCell, and recipe: Recipes.Recipe, with ingredients: String) {
         var ratingString: String {
-            return Unwrap.unwrap(.rating, for: recipe)
+            return Unwraper.unwrap(.rating, for: recipe)
         }
 
         var timeString: String {
-            return Unwrap.unwrap(.time, for: recipe)
+            return Unwraper.unwrap(.time, for: recipe)
         }
 
         cell.configure(image: .init(),
@@ -91,5 +94,23 @@ extension RecipeViewController: UITableViewDataSource {
                        ingredients: ingredientsList,
                        rating: ratingString,
                        time: timeString)
+    }
+}
+
+// MARK: - Segue to DetailVC
+
+extension RecipeViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let cell = tableView.cellForRow(at: indexPath)
+        recipeID = recipes.matches[indexPath.row].id
+        performSegue(withIdentifier: UIID.segue.presentRecipeDetail, sender: cell)
+        tableView.deselectRow(at: indexPath, animated: false)
+    }
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == UIID.segue.presentRecipeDetail {
+            let detailVC = segue.destination as! DetailViewController
+            detailVC.detailedRecipeID = recipeID
+        }
     }
 }

@@ -75,16 +75,16 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view alpha="0.80000000000000004" contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="8Ti-Jk-Bc7" userLabel="Container">
-                                                    <rect key="frame" x="25" y="11" width="325" height="72"/>
+                                                    <rect key="frame" x="25" y="11" width="364" height="72"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" text="Recipe Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wjF-DZ-agG">
-                                                            <rect key="frame" x="98" y="9" width="184" height="23.5"/>
+                                                            <rect key="frame" x="98" y="9" width="225" height="25.5"/>
                                                             <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="20"/>
                                                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="250" text="5 ⭐️" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H9D-4X-9UB" userLabel="Rating Label">
-                                                            <rect key="frame" x="287.5" y="17" width="26.5" height="16.5"/>
+                                                            <rect key="frame" x="328.5" y="17" width="24.5" height="16.5"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" priority="999" constant="27.5" id="WCR-37-4ra"/>
                                                             </constraints>
@@ -93,7 +93,7 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" text="35'" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h24-pf-DMx" userLabel="Time Label">
-                                                            <rect key="frame" x="297" y="48" width="17" height="16.5"/>
+                                                            <rect key="frame" x="338" y="48" width="15" height="16.5"/>
                                                             <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="12"/>
                                                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
@@ -106,7 +106,7 @@
                                                             </constraints>
                                                         </imageView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" text="ingredients" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="anq-X9-7SC">
-                                                            <rect key="frame" x="98" y="51" width="184" height="12"/>
+                                                            <rect key="frame" x="98" y="50" width="225" height="13"/>
                                                             <fontDescription key="fontDescription" name="SourceSansPro-Light" family="Source Sans Pro" pointSize="10"/>
                                                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
@@ -148,6 +148,7 @@
                                             <outlet property="ratingLabel" destination="H9D-4X-9UB" id="69T-5r-wLt"/>
                                             <outlet property="recipeImage" destination="jLf-8J-Lf8" id="HT1-AR-G2q"/>
                                             <outlet property="timeLabel" destination="h24-pf-DMx" id="fqx-Mu-MeM"/>
+                                            <segue destination="Yv1-io-HUc" kind="presentation" identifier="presentRecipeDetail" id="4Ug-HG-0xd"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -178,7 +179,7 @@
         <!--Detail View Controller-->
         <scene sceneID="SNq-iD-rtt">
             <objects>
-                <viewController storyboardIdentifier="detail" title="Detail View Controller" id="Yv1-io-HUc" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="detail" title="Detail View Controller" id="Yv1-io-HUc" customClass="DetailViewController" customModule="Reciplease" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ZDT-At-KIv">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -260,8 +261,11 @@
                                         <state key="normal" image="favorite">
                                             <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
+                                        <connections>
+                                            <action selector="createFavorite:" destination="Yv1-io-HUc" eventType="touchUpInside" id="ls4-ju-q4q"/>
+                                        </connections>
                                     </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ingredients" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dsW-Cy-gU7">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ingredients" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dsW-Cy-gU7">
                                         <rect key="frame" x="17" y="15" width="151" height="31.5"/>
                                         <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="25"/>
                                         <nil key="textColor"/>
@@ -271,36 +275,39 @@
                                         <rect key="frame" x="15" y="64" width="325" height="239"/>
                                         <color key="backgroundColor" red="0.66484129430000005" green="0.74673461910000005" blue="0.38995650409999999" alpha="0.0" colorSpace="custom" customColorSpace="displayP3"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" priority="250" constant="239" id="OKg-Aj-QwJ"/>
+                                            <constraint firstAttribute="height" priority="251" constant="239" id="OKg-Aj-QwJ"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="17"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Get directions" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gio-VK-Ree">
-                                        <rect key="frame" x="15" y="318" width="325" height="72"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ecb-ak-NoR">
+                                        <rect key="frame" x="15" y="322" width="325" height="72"/>
                                         <color key="backgroundColor" red="0.22166189550000001" green="0.24503991010000001" blue="0.1287551224" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="72" id="hX1-aK-yE3"/>
-                                            <constraint firstAttribute="width" secondItem="gio-VK-Ree" secondAttribute="height" multiplier="325:72" id="qAM-eg-Flw"/>
+                                            <constraint firstAttribute="height" constant="72" id="NEJ-RL-ZLD"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="25"/>
-                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
+                                        <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="26"/>
+                                        <state key="normal" title="Get Directions">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="getDirections:" destination="Yv1-io-HUc" eventType="touchUpInside" id="gs4-3j-MWh"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.66484129430000005" green="0.74673461910000005" blue="0.38995650409999999" alpha="0.5" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstItem="4Ol-RA-txw" firstAttribute="top" secondItem="EB3-lC-rnQ" secondAttribute="top" constant="15" id="1QC-nB-a0A"/>
-                                    <constraint firstItem="gio-VK-Ree" firstAttribute="leading" secondItem="EB3-lC-rnQ" secondAttribute="leading" constant="15" id="59O-xD-yAj"/>
+                                    <constraint firstItem="ecb-ak-NoR" firstAttribute="top" secondItem="2Q5-px-4vO" secondAttribute="bottom" constant="19" id="1sE-1x-fCJ"/>
                                     <constraint firstItem="dsW-Cy-gU7" firstAttribute="top" secondItem="EB3-lC-rnQ" secondAttribute="top" constant="15" id="5W0-4P-Fyn"/>
-                                    <constraint firstItem="4Ol-RA-txw" firstAttribute="leading" secondItem="dsW-Cy-gU7" secondAttribute="trailing" constant="124" id="TiH-pr-x0t"/>
-                                    <constraint firstAttribute="bottom" secondItem="gio-VK-Ree" secondAttribute="bottom" constant="19" id="Yfw-sn-DCT"/>
+                                    <constraint firstItem="ecb-ak-NoR" firstAttribute="leading" secondItem="EB3-lC-rnQ" secondAttribute="leading" constant="15" id="7eV-MT-SeA"/>
+                                    <constraint firstAttribute="trailing" secondItem="ecb-ak-NoR" secondAttribute="trailing" constant="15" id="QPI-7p-U0q"/>
+                                    <constraint firstItem="4Ol-RA-txw" firstAttribute="leading" relation="lessThanOrEqual" secondItem="dsW-Cy-gU7" secondAttribute="trailing" constant="124" id="TiH-pr-x0t"/>
                                     <constraint firstItem="2Q5-px-4vO" firstAttribute="top" secondItem="4Ol-RA-txw" secondAttribute="bottom" constant="15" id="ZjU-qt-BMp"/>
                                     <constraint firstAttribute="trailing" secondItem="4Ol-RA-txw" secondAttribute="trailing" constant="15" id="apn-Ts-Ntv"/>
                                     <constraint firstItem="2Q5-px-4vO" firstAttribute="leading" secondItem="EB3-lC-rnQ" secondAttribute="leading" constant="15" id="gbX-4m-grY"/>
+                                    <constraint firstAttribute="bottom" secondItem="ecb-ak-NoR" secondAttribute="bottom" constant="15" id="ktH-Xk-4Ou"/>
                                     <constraint firstAttribute="trailing" secondItem="2Q5-px-4vO" secondAttribute="trailing" constant="15" id="o3L-YS-Lep"/>
-                                    <constraint firstItem="gio-VK-Ree" firstAttribute="top" secondItem="2Q5-px-4vO" secondAttribute="bottom" constant="15" id="stI-g1-us7"/>
-                                    <constraint firstAttribute="trailing" secondItem="gio-VK-Ree" secondAttribute="trailing" constant="15" id="vaq-Ra-F2W"/>
                                     <constraint firstItem="dsW-Cy-gU7" firstAttribute="leading" secondItem="EB3-lC-rnQ" secondAttribute="leading" constant="17" id="y7G-2i-Dgl"/>
                                 </constraints>
                             </view>
@@ -311,6 +318,9 @@
                                 <state key="normal" title="X">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="dismiss:" destination="Yv1-io-HUc" eventType="touchUpInside" id="Rhu-RW-aGK"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -331,6 +341,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="FLs-ni-HOT"/>
                     </view>
+                    <connections>
+                        <outlet property="favoriteButton" destination="4Ol-RA-txw" id="RDP-OU-Hjt"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qiP-yo-an0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

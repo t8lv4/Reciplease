@@ -14,7 +14,7 @@ enum Optional {
 }
 
 /// Unwrap optionals
-struct Unwrap {
+struct Unwraper {
     /**
      Unwrap RecipeViewController's optionals
 

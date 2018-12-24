@@ -12,7 +12,7 @@ import Nuke
 
 // MARK: - Call Yummly
 
-/// Call Yummly API
+/// Handle networking calls
 struct YummlyService {
     typealias Callback = (Bool, Any?) -> Void
     /**
@@ -24,7 +24,6 @@ struct YummlyService {
  */
     static func getRecipes(with ingredients: String, callback: @escaping Callback) {
         Alamofire.request(createURL(with: ingredients)).responseJSON { response in
-            print("getRecipes result: \(response.result.description)")
             response.result.ifFailure {
                 callback(false, nil)
             }
@@ -40,7 +39,7 @@ struct YummlyService {
 
 extension YummlyService {
     /**
-     Call to download the thumnail linked to a recipe
+     Call to download a thumbnail image linked to a recipe
 
      - parameter cell: Display the image
      - parameter recipe: The recipe associated with the image
