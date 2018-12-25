@@ -34,13 +34,20 @@ struct YummlyService {
         }
     }
 
+    /**
+     Perform an API call with Alamofire
+
+     - Parameters:
+        - recipeID: The Yummly ID of a recipe
+        - callback: Provide the state of the API response
+     */
     static func getRecipe(with recipeID: String, callback: @escaping Callback) {
         Alamofire.request(createGetURL(with: recipeID)).responseJSON { response in
             response.result.ifFailure {
                 callback(false, nil)
             }
             response.result.ifSuccess {
-//                let resource =
+//                let resource = parse(response.data!)
                 callback(true, response)
             }
         }
@@ -72,7 +79,7 @@ extension YummlyService {
 // MARK: - Create URLs
 
 extension YummlyService {
-    /// Create a  URLRequest to access Yummly resources
+    /// Build a URL and return a  URLRequest to access Yummly recipes list
     static private func createSearchURL(with ingredients: String) -> URLRequest {
         let ingredients = ingredients.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)
         let completeURL = APIAssets.searchEndpoint
@@ -83,17 +90,19 @@ extension YummlyService {
         return YummlyService.createRequest(with: completeURL)
     }
 
+    /// Build a URL and return a  URLRequest to access an Yummly detailed recipe
     static private func createGetURL(with recipeID: String) -> URLRequest {
         let completeURL = APIAssets.getEndpoint
             + recipeID
             + APIAssets.get
             + APIAssets.credentials
 
-        print(completeURL)
+        print("url is:", completeURL)
 
         return YummlyService.createRequest(with: completeURL)
     }
 
+    /// Create a URLRequest
     static private func createRequest(with completeURL: String) -> URLRequest {
         let url = URL(string: completeURL)!
         var request = URLRequest(url: url)
