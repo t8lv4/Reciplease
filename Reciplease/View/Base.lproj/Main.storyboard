@@ -197,7 +197,7 @@
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Recipe Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KeN-bE-wiu">
                                         <rect key="frame" x="10" y="14.333333333333313" width="110" height="25.333333333333329"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" priority="250" constant="186" id="jUf-iU-zgC"/>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" priority="250" constant="186" id="jUf-iU-zgC"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="20"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -213,7 +213,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="time" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dh1-dI-UsX">
-                                        <rect key="frame" x="312.66666666666669" y="52.666666666666657" width="33.333333333333314" height="15.666666666666671"/>
+                                        <rect key="frame" x="312.33333333333331" y="52.666666666666657" width="33.666666666666686" height="15.666666666666671"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="dh1-dI-UsX" secondAttribute="height" multiplier="15:7" id="e4j-lm-8JX"/>
                                         </constraints>
@@ -222,7 +222,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="rating" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cyq-Mw-QUp">
-                                        <rect key="frame" x="312.66666666666669" y="10" width="33.333333333333314" height="15.333333333333336"/>
+                                        <rect key="frame" x="312.33333333333331" y="10" width="33.666666666666686" height="15.333333333333336"/>
                                         <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="12"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
@@ -344,6 +344,10 @@
                         <viewLayoutGuide key="safeArea" id="FLs-ni-HOT"/>
                     </view>
                     <connections>
+                        <outlet property="detailedRecipeNameLabel" destination="KeN-bE-wiu" id="8Dc-tR-xPh"/>
+                        <outlet property="detailedRecipeRatingLabel" destination="cyq-Mw-QUp" id="XsD-AD-AUF"/>
+                        <outlet property="detailedRecipeServingsLabel" destination="4pb-Po-85Y" id="2af-dZ-gVu"/>
+                        <outlet property="detailedRecipeTimeLabel" destination="dh1-dI-UsX" id="Bdg-gX-1zO"/>
                         <outlet property="favoriteButton" destination="4Ol-RA-txw" id="RDP-OU-Hjt"/>
                     </connections>
                 </viewController>

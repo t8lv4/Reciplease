@@ -21,14 +21,14 @@ struct YummlyService {
      - Parameters:
         - ingredients: The user input
         - callback: Provide the state of the API response
- */
+     */
     static func searchRecipes(with ingredients: String, callback: @escaping Callback) {
         Alamofire.request(createSearchURL(with: ingredients)).responseJSON { response in
             response.result.ifFailure {
                 callback(false, nil)
             }
             response.result.ifSuccess {
-                let resource = parse(response.data!)
+                let resource = parseRecipes(response.data!)
                 callback(true, resource)
             }
         }
@@ -47,8 +47,8 @@ struct YummlyService {
                 callback(false, nil)
             }
             response.result.ifSuccess {
-//                let resource = parse(response.data!)
-                callback(true, response)
+                let resource = parseDetailedRecipe(response.data!)
+                callback(true, resource)
             }
         }
     }
@@ -97,8 +97,6 @@ extension YummlyService {
             + APIAssets.get
             + APIAssets.credentials
 
-        print("url is:", completeURL)
-
         return YummlyService.createRequest(with: completeURL)
     }
 
@@ -116,7 +114,7 @@ extension YummlyService {
 
 extension YummlyService {
     /// Decode data, return recipes
-    static private func parse(_ data: Data) -> Recipes {
+    static private func parseRecipes(_ data: Data) -> Recipes {
         let recipe = Recipes(matches: [], totalMatchCount: 0)
 
         do {
@@ -137,7 +135,26 @@ extension YummlyService {
         return recipe
     }
 
-//    static private func parseSearch(_ data: Data) -> Recipe {
-//
-//    }
+    static private func parseDetailedRecipe(_ data: Data) -> DetailedRecipe {
+        let source = DetailedRecipe.Source.init(sourceRecipeUrl: "")
+        let images = DetailedRecipe.Images.init(hostedLargeUrl: "")
+        let detailedRecipe = DetailedRecipe(ingredientLines: [""], numberOfServings: 0, source: source, images: [images])
+
+        do {
+            let detailedRecipe = try JSONDecoder().decode(DetailedRecipe.self, from: data)
+            return detailedRecipe
+        } catch DecodingError.dataCorrupted(let context) {
+            print(context.debugDescription)
+        } catch DecodingError.keyNotFound(let key, let context) {
+            print("\(key.stringValue) was not found, \(context.debugDescription)")
+        } catch DecodingError.typeMismatch(let type, let context) {
+            print("\(type) was expected, \(context.debugDescription)")
+        } catch DecodingError.valueNotFound(let type, let context) {
+            print("no value was found for \(type), \(context.debugDescription)")
+        } catch {
+            print("Unknown error")
+        }
+
+        return detailedRecipe
+    }
 }

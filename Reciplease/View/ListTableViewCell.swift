@@ -35,7 +35,7 @@ class ListTableViewCell: UITableViewCell {
 }
 
 extension ListTableViewCell {
-    /// Configure custom cell's elements
+    /// Configure custom cell's elements to display
     func configure(image: UIImage, name: String, ingredients: String, rating: String, time: String) {
         recipeImage.image = image
         nameLabel.text = name

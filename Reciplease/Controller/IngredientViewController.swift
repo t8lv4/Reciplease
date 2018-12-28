@@ -40,7 +40,6 @@ class IngredientViewController: UIViewController {
     }
 }
 
-
 // MARK: - textView
 
 extension IngredientViewController: UITextViewDelegate {

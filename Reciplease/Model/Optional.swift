@@ -16,7 +16,7 @@ enum Optional {
 /// Unwrap optionals
 struct Unwraper {
     /**
-     Unwrap RecipeViewController's optionals
+     Unwrap Models optionals
 
      - parameter optional: The optional to unwrap
      - parameter recipe: Item returned by the Yummly API

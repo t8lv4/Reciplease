@@ -12,8 +12,7 @@ extension String {
     /**
      Format a string
 
-     - Parameters:
-        - separator: Separate the words in the resulting string
+     - parameter separator: Separate words in a returned string
 
      Provide a formatted string with a given separator
      in order to fit with e.g. networking parameters or UI display requirements.

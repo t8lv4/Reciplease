@@ -8,18 +8,25 @@
 
 import UIKit
 
-/// List recipes
+/// Handle the recipes list view
 class RecipeViewController: UIViewController {
+    // MARK: - Properties
+
     /// List of ingredients from IngredientViewController
     var ingredients = String()
     /// Yummly search parameter
     var ingredientsList = ""
-    /// A recipes array
+    /// Recipes array
     var recipes = Recipes(matches: [], totalMatchCount: 0)
     /// Recipe ID
     var recipeID = ""
+    var recipeName = ""
+    var recipeRating = ""
+    var recipeTime = ""
     /// Display recipes
     @IBOutlet weak var tableView: UITableView!
+
+    // MARK: - Methods
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -81,10 +88,11 @@ extension RecipeViewController: UITableViewDataSource {
      - parameter ingredients: The ingredients list
      */
     private func configureCell(for cell: ListTableViewCell, and recipe: Recipes.Recipe, with ingredients: String) {
+        /// A recipe rating or n/a
         var ratingString: String {
             return Unwraper.unwrap(.rating, for: recipe)
         }
-
+        /// A recipe execution time or n/a
         var timeString: String {
             return Unwraper.unwrap(.time, for: recipe)
         }
@@ -102,9 +110,20 @@ extension RecipeViewController: UITableViewDataSource {
 extension RecipeViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let cell = tableView.cellForRow(at: indexPath)
-        recipeID = recipes.matches[indexPath.row].id
-        
-        print("recipe id at selected row is: \(recipeID)")
+        let recipe = recipes.matches[indexPath.row]
+
+        var ratingString: String {
+            return Unwraper.unwrap(.rating, for: recipe)
+        }
+
+        var timeString: String {
+            return Unwraper.unwrap(.time, for: recipe)
+        }
+
+        recipeID = recipe.id
+        recipeName = recipe.recipeName
+        recipeRating = ratingString
+        recipeTime = timeString
 
         performSegue(withIdentifier: UIID.segue.presentRecipeDetail, sender: cell)
         tableView.deselectRow(at: indexPath, animated: false)
@@ -114,6 +133,9 @@ extension RecipeViewController: UITableViewDelegate {
         if segue.identifier == UIID.segue.presentRecipeDetail {
             let detailVC = segue.destination as! DetailViewController
             detailVC.detailedRecipeID = recipeID
+            detailVC.detailedRecipeName = recipeName
+            detailVC.detailedRecipeRating = recipeRating
+            detailVC.detailedRecipeTime = recipeTime
         }
     }
 }
