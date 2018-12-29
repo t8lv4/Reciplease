@@ -29,8 +29,13 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var detailedRecipeRatingLabel: UILabel!
     /// Recipe's execution time or empty string
     @IBOutlet weak var detailedRecipeTimeLabel: UILabel!
+    /// Hold an ingredients list
+    @IBOutlet weak var ingredientsTextView: UITextView!
     /// Favorite button
     @IBOutlet weak var favoriteButton: UIButton!
+    /// Recipe's image if available, else a default image
+    @IBOutlet weak var detailedRecipeImageView: UIImageView!
+    
 
     // MARK: - Methods
     
@@ -52,7 +57,6 @@ class DetailViewController: UIViewController {
         self.detailedRecipeRatingLabel.text = self.detailedRecipeRating
         self.detailedRecipeTimeLabel.text = self.detailedRecipeTime
     }
-
 }
 
 extension DetailViewController {
@@ -60,7 +64,21 @@ extension DetailViewController {
         super.viewWillAppear(animated)
 
         YummlyService.getRecipe(with: detailedRecipeID) { (success, resource) in
-            print("resource is: \(String(describing: resource))")
+            if success, let detailedRecipe = resource as? DetailedRecipe {
+                self.updateUI(with: detailedRecipe)
+            } else {
+                // alert user
+            }
         }
+    }
+
+    /**
+     Update UI objects with recipe elements fetched from Yummly
+     */
+    private func updateUI(with detailedRecipe: DetailedRecipe) {
+        // TODO: unwrap optionals
+        self.detailedRecipeServingsLabel.text = "Servings: " + String(detailedRecipe.numberOfServings!)
+        self.ingredientsTextView.text = detailedRecipe.ingredientLines.joined(separator: "\n")
+        YummlyService.getImage(for: self.detailedRecipeImageView, from: detailedRecipe.images[0].hostedLargeUrl)
     }
 }

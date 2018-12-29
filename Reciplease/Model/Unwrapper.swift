@@ -1,5 +1,5 @@
 //
-//  Optional.swift
+//  Unwrapper.swift
 //  Reciplease
 //
 //  Created by Morgan on 23/12/2018.
@@ -9,19 +9,21 @@
 import Foundation
 
 /// List optionals
-enum Optional {
+enum RecipleaseOptionals {
     case rating, time
 }
 
 /// Unwrap optionals
-struct Unwraper {
+struct Unwrapper {
     /**
-     Unwrap Models optionals
+     Unwrap optionals and prepare them for UI display
 
      - parameter optional: The optional to unwrap
      - parameter recipe: Item returned by the Yummly API
+
+     - Returns: A string, either the optional's value or n/a
      */
-    static func unwrap(_ optional: Optional, for recipe: Recipes.Recipe) -> String {
+    static func unwrap(_ optional: RecipleaseOptionals, for recipe: Recipes.Recipe) -> String {
         switch optional {
         case .rating:
             if let rating = recipe.rating {

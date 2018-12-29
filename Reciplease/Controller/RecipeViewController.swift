@@ -16,7 +16,7 @@ class RecipeViewController: UIViewController {
     var ingredients = String()
     /// Yummly search parameter
     var ingredientsList = ""
-    /// Recipes array
+    /// Recipes instance
     var recipes = Recipes(matches: [], totalMatchCount: 0)
     /// Recipe ID
     var recipeID = ""
@@ -75,7 +75,7 @@ extension RecipeViewController: UITableViewDataSource {
         ingredientsList = ingredients.format(with: ", ") + ", ..."
 
         configureCell(for: cell, and: recipe, with: ingredientsList)
-        YummlyService.getThumbnail(for: cell, and: recipe)
+        YummlyService.getImage(for: cell.recipeImage, from: recipe.smallImageUrls?[0])
 
         return cell
     }
@@ -90,11 +90,11 @@ extension RecipeViewController: UITableViewDataSource {
     private func configureCell(for cell: ListTableViewCell, and recipe: Recipes.Recipe, with ingredients: String) {
         /// A recipe rating or n/a
         var ratingString: String {
-            return Unwraper.unwrap(.rating, for: recipe)
+            return Unwrapper.unwrap(.rating, for: recipe)
         }
         /// A recipe execution time or n/a
         var timeString: String {
-            return Unwraper.unwrap(.time, for: recipe)
+            return Unwrapper.unwrap(.time, for: recipe)
         }
 
         cell.configure(image: .init(),
@@ -113,11 +113,11 @@ extension RecipeViewController: UITableViewDelegate {
         let recipe = recipes.matches[indexPath.row]
 
         var ratingString: String {
-            return Unwraper.unwrap(.rating, for: recipe)
+            return Unwrapper.unwrap(.rating, for: recipe)
         }
 
         var timeString: String {
-            return Unwraper.unwrap(.time, for: recipe)
+            return Unwrapper.unwrap(.time, for: recipe)
         }
 
         recipeID = recipe.id

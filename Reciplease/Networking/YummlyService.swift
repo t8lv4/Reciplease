@@ -54,25 +54,25 @@ struct YummlyService {
     }
 }
 
-//MARK: - Get Thumbnail
+//MARK: - Get Image
 
 extension YummlyService {
     /**
-     Call to download a thumbnail image linked to a recipe
+     Call to download an image linked to a recipe
 
-     - parameter cell: Display the image
-     - parameter recipe: The recipe associated with the image
+     - parameter view: Display the image
+     - parameter recipeURL: The image location
      */
-    static func getThumbnail(for cell: ListTableViewCell, and recipe: Recipes.Recipe) {
-        let url = URL(string: recipe.smallImageUrls![0])!
+    static func getImage(for view: UIImageView, from recipeURL: String?) {
+        let url = URL(string: recipeURL!)!
         let options = ImageLoadingOptions(
-            placeholder: UIImage(named: Image.defaultThumbnail.rawValue),
-            transition: .fadeIn(duration: 0.5)
+            placeholder: UIImage(named: Image.defaultImage.rawValue),
+            transition: .fadeIn(duration: 0.3)
         )
 
         Nuke.loadImage(with: url,
                        options: options,
-                       into: cell.recipeImage)
+                       into: view)
     }
 }
 

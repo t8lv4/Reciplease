@@ -75,16 +75,16 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view alpha="0.80000000000000004" contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="8Ti-Jk-Bc7" userLabel="Container">
-                                                    <rect key="frame" x="30" y="11" width="354" height="72"/>
+                                                    <rect key="frame" x="30" y="11" width="315" height="72"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" text="Recipe Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wjF-DZ-agG">
-                                                            <rect key="frame" x="98" y="9.0000000000000018" width="215" height="25.666666666666671"/>
+                                                            <rect key="frame" x="98" y="9.0000000000000018" width="176" height="25.666666666666671"/>
                                                             <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="20"/>
                                                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="250" text="5 ⭐️" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H9D-4X-9UB" userLabel="Rating Label">
-                                                            <rect key="frame" x="318.66666666666669" y="17" width="24.333333333333314" height="16.666666666666671"/>
+                                                            <rect key="frame" x="279.66666666666669" y="17" width="24.333333333333314" height="16.666666666666671"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" priority="999" constant="27.5" id="WCR-37-4ra"/>
                                                             </constraints>
@@ -93,7 +93,7 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" text="35'" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h24-pf-DMx" userLabel="Time Label">
-                                                            <rect key="frame" x="328" y="48" width="15" height="16.666666666666671"/>
+                                                            <rect key="frame" x="289" y="48" width="15" height="16.666666666666671"/>
                                                             <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="12"/>
                                                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
@@ -106,7 +106,7 @@
                                                             </constraints>
                                                         </imageView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" text="ingredients" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="anq-X9-7SC">
-                                                            <rect key="frame" x="98" y="50" width="215" height="13"/>
+                                                            <rect key="frame" x="98" y="50" width="176" height="13"/>
                                                             <fontDescription key="fontDescription" name="SourceSansPro-Light" family="Source Sans Pro" pointSize="10"/>
                                                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
@@ -194,8 +194,8 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0CK-9s-PXv" userLabel="UpperView">
                                 <rect key="frame" x="29" y="151.33333333333334" width="356" height="76.666666666666657"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Recipe Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KeN-bE-wiu">
-                                        <rect key="frame" x="10" y="14.333333333333313" width="110" height="25.333333333333329"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Recipe Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KeN-bE-wiu">
+                                        <rect key="frame" x="10" y="5.3333333333333126" width="110" height="25.333333333333329"/>
                                         <constraints>
                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" priority="250" constant="186" id="jUf-iU-zgC"/>
                                         </constraints>
@@ -203,12 +203,12 @@
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="servings: ..." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4pb-Po-85Y">
-                                        <rect key="frame" x="10" y="55.666666666666657" width="110" height="13"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="servings: ..." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4pb-Po-85Y">
+                                        <rect key="frame" x="10" y="46.666666666666657" width="110" height="22"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="13" id="mEN-nq-RDZ"/>
+                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="13" id="mEN-nq-RDZ"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" name="SourceSansPro-Light" family="Source Sans Pro" pointSize="10"/>
+                                        <fontDescription key="fontDescription" name="SourceSansPro-Light" family="Source Sans Pro" pointSize="12"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -222,7 +222,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="rating" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cyq-Mw-QUp">
-                                        <rect key="frame" x="312.33333333333331" y="10" width="33.666666666666686" height="15.333333333333336"/>
+                                        <rect key="frame" x="312.33333333333331" y="10" width="33.666666666666686" height="15"/>
                                         <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="12"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
@@ -231,6 +231,7 @@
                                 <color key="backgroundColor" red="0.22166189550000001" green="0.24503991010000001" blue="0.1287551224" alpha="0.79869434931506844" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="bottom" secondItem="dh1-dI-UsX" secondAttribute="bottom" constant="8.5" id="0m6-lw-LDV"/>
+                                    <constraint firstItem="KeN-bE-wiu" firstAttribute="top" secondItem="0CK-9s-PXv" secondAttribute="top" constant="5.5" id="2EW-O7-SG8"/>
                                     <constraint firstItem="dh1-dI-UsX" firstAttribute="leading" secondItem="4pb-Po-85Y" secondAttribute="trailing" priority="250" constant="144" id="F7z-Ti-TB5"/>
                                     <constraint firstAttribute="width" secondItem="0CK-9s-PXv" secondAttribute="height" multiplier="65:14" id="LZy-Cb-kNu"/>
                                     <constraint firstItem="KeN-bE-wiu" firstAttribute="leading" secondItem="0CK-9s-PXv" secondAttribute="leading" constant="10" id="OFC-5u-5eg"/>
@@ -264,12 +265,12 @@
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ingredients" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dsW-Cy-gU7">
-                                        <rect key="frame" x="17" y="15.000000000000002" width="190" height="31.666666666666671"/>
-                                        <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="25"/>
+                                        <rect key="frame" x="17" y="15.000000000000002" width="190" height="25.666666666666671"/>
+                                        <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="20"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="ingredient" translatesAutoresizingMaskIntoConstraints="NO" id="2Q5-px-4vO">
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="ingredient" translatesAutoresizingMaskIntoConstraints="NO" id="2Q5-px-4vO" userLabel="Ingredients List">
                                         <rect key="frame" x="15" y="64" width="364" height="308"/>
                                         <color key="backgroundColor" red="0.66484129430000005" green="0.74673461910000005" blue="0.38995650409999999" alpha="0.0" colorSpace="custom" customColorSpace="displayP3"/>
                                         <constraints>
@@ -344,11 +345,13 @@
                         <viewLayoutGuide key="safeArea" id="FLs-ni-HOT"/>
                     </view>
                     <connections>
+                        <outlet property="detailedRecipeImageView" destination="7de-DM-rvB" id="2ne-Vd-Hgg"/>
                         <outlet property="detailedRecipeNameLabel" destination="KeN-bE-wiu" id="8Dc-tR-xPh"/>
                         <outlet property="detailedRecipeRatingLabel" destination="cyq-Mw-QUp" id="XsD-AD-AUF"/>
                         <outlet property="detailedRecipeServingsLabel" destination="4pb-Po-85Y" id="2af-dZ-gVu"/>
                         <outlet property="detailedRecipeTimeLabel" destination="dh1-dI-UsX" id="Bdg-gX-1zO"/>
                         <outlet property="favoriteButton" destination="4Ol-RA-txw" id="RDP-OU-Hjt"/>
+                        <outlet property="ingredientsTextView" destination="2Q5-px-4vO" id="PQI-Ot-Co9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qiP-yo-an0" userLabel="First Responder" sceneMemberID="firstResponder"/>
