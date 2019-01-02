@@ -10,7 +10,7 @@ import Foundation
 
 /// List optionals
 enum RecipleaseOptionals {
-    case rating, time
+    case rating, time, servings
 }
 
 /// Unwrap optionals
@@ -23,17 +23,23 @@ struct Unwrapper {
 
      - Returns: A string, either the optional's value or n/a
      */
-    static func unwrap(_ optional: RecipleaseOptionals, for recipe: Recipes.Recipe) -> String {
+    static func unwrap(_ optional: RecipleaseOptionals, for recipe: Any) -> String {
         switch optional {
         case .rating:
-            if let rating = recipe.rating {
+            if let rating = (recipe as! Recipes.Recipe).rating {
                 return String(rating) + " ⭐️"
             } else {
                 return "n/a"
             }
         case .time:
-            if let time = recipe.totalTimeInSeconds {
+            if let time = (recipe as! Recipes.Recipe).totalTimeInSeconds {
                 return String(time / 60) + "'"
+            } else {
+                return "n/a"
+            }
+        case .servings:
+            if let servings = (recipe as! DetailedRecipe).numberOfServings {
+                return "Servings: " + String(servings)
             } else {
                 return "n/a"
             }

@@ -12,7 +12,7 @@ import UIKit
 class DetailViewController: UIViewController {
     // MARK: - Properties
 
-    /// A detailed recipe source location.
+    /// A detailed recipe source location, required by the Yummly API.
     /// Let user get recipe directions.
     var detailedRecipeURL = ""
     /// Hold value from RecipeViewController
@@ -48,8 +48,6 @@ class DetailViewController: UIViewController {
     }
     /// Get recipe directions
     @IBAction func getDirections(_ sender: Any) {
-        print("get dir")
-            // open browser
             let url = URL(string: detailedRecipeURL)!
             UIApplication.shared.open(url)
     }
@@ -84,8 +82,7 @@ extension DetailViewController {
      Update UI objects with recipe elements fetched from Yummly
      */
     private func updateUI(with detailedRecipe: DetailedRecipe) {
-        // TODO: unwrap optionals
-        self.detailedRecipeServingsLabel.text = "Servings: " + String(detailedRecipe.numberOfServings!)
+        self.detailedRecipeServingsLabel.text = Unwrapper.unwrap(.servings, for: detailedRecipe)
         self.ingredientsTextView.text = detailedRecipe.ingredientLines.joined(separator: "\n")
         YummlyService.getImage(for: self.detailedRecipeImageView, from: detailedRecipe.images[0].hostedLargeUrl)
     }
