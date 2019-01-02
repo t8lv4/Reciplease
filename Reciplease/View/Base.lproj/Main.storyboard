@@ -42,7 +42,7 @@
         <scene sceneID="sIH-DG-jwz">
             <objects>
                 <navigationController storyboardIdentifier="favoriteNavigation" id="68Y-iP-k36" userLabel="Favorite" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="favorite" image="favoriteFilled" id="Tfo-bO-bXY"/>
+                    <tabBarItem key="tabBarItem" tag="1" title="favorite" image="favoriteFilled" id="Tfo-bO-bXY"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="hWM-6C-MeY">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -50,6 +50,9 @@
                             <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="17"/>
                         </textAttributes>
                     </navigationBar>
+                    <connections>
+                        <segue destination="bQ5-rD-ZQw" kind="relationship" relationship="rootViewController" id="QTB-Yp-rlg"/>
+                    </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="69K-AM-eUV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -272,7 +275,7 @@
                                 <rect key="frame" x="25" y="151" width="325" height="72"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Recipe Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KeN-bE-wiu">
-                                        <rect key="frame" x="18" y="5" width="110" height="25.5"/>
+                                        <rect key="frame" x="18" y="5" width="248" height="26"/>
                                         <constraints>
                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" priority="250" constant="186" id="jUf-iU-zgC"/>
                                         </constraints>
@@ -281,7 +284,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="servings: ..." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4pb-Po-85Y">
-                                        <rect key="frame" x="18" y="46.5" width="110" height="20.5"/>
+                                        <rect key="frame" x="18" y="47" width="53" height="20"/>
                                         <constraints>
                                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="13" id="mEN-nq-RDZ"/>
                                         </constraints>
@@ -316,8 +319,7 @@
                                     <constraint firstItem="KeN-bE-wiu" firstAttribute="top" secondItem="0CK-9s-PXv" secondAttribute="top" constant="5" id="bvh-5x-kgp"/>
                                     <constraint firstItem="4pb-Po-85Y" firstAttribute="leading" secondItem="0CK-9s-PXv" secondAttribute="leading" constant="18" id="cAt-2I-hJ2"/>
                                     <constraint firstAttribute="bottom" secondItem="4pb-Po-85Y" secondAttribute="bottom" constant="5" id="dNo-Lo-bha"/>
-                                    <constraint firstItem="4pb-Po-85Y" firstAttribute="width" secondItem="KeN-bE-wiu" secondAttribute="width" id="fFK-gv-Ku6"/>
-                                    <constraint firstItem="cyq-Mw-QUp" firstAttribute="leading" secondItem="KeN-bE-wiu" secondAttribute="trailing" priority="250" constant="144" id="smD-h6-5gX"/>
+                                    <constraint firstItem="cyq-Mw-QUp" firstAttribute="leading" secondItem="KeN-bE-wiu" secondAttribute="trailing" constant="8" id="fS4-XC-Wdd"/>
                                     <constraint firstItem="cyq-Mw-QUp" firstAttribute="width" secondItem="dh1-dI-UsX" secondAttribute="width" id="tm4-aO-Gaq"/>
                                     <constraint firstItem="dh1-dI-UsX" firstAttribute="top" secondItem="cyq-Mw-QUp" secondAttribute="bottom" priority="250" constant="24" id="uT1-4r-SaY"/>
                                     <constraint firstAttribute="bottom" secondItem="dh1-dI-UsX" secondAttribute="bottom" constant="8" id="war-Lk-it6"/>
@@ -460,9 +462,12 @@
     <resources>
         <image name="defaultImage" width="336" height="208"/>
         <image name="defaultThumbnail" width="90" height="60"/>
-        <image name="exit" width="22" height="22"/>
+        <image name="exit" width="21" height="21"/>
         <image name="favorite" width="23" height="21"/>
         <image name="favoriteFilled" width="23" height="21"/>
         <image name="recipe" width="25" height="22"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="eFb-ea-zUq"/>
+    </inferredMetricsTieBreakers>
 </document>

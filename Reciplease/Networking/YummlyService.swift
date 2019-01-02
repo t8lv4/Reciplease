@@ -23,7 +23,7 @@ struct YummlyService {
         - callback: Provide the state of the API response
      */
     static func searchRecipes(with ingredients: String, callback: @escaping Callback) {
-        Alamofire.request(createSearchURL(with: ingredients)).responseJSON { response in
+        Alamofire.request(buildSearchURL(with: ingredients)).responseJSON { response in
             response.result.ifFailure {
                 callback(false, nil)
             }
@@ -42,7 +42,7 @@ struct YummlyService {
         - callback: Provide the state of the API response
      */
     static func getRecipe(with recipeID: String, callback: @escaping Callback) {
-        Alamofire.request(createGetURL(with: recipeID)).responseJSON { response in
+        Alamofire.request(buildGetURL(with: recipeID)).responseJSON { response in
             response.result.ifFailure {
                 callback(false, nil)
             }
@@ -80,7 +80,7 @@ extension YummlyService {
 
 extension YummlyService {
     /// Build a URL and return a  URLRequest to access Yummly recipes list
-    static private func createSearchURL(with ingredients: String) -> URLRequest {
+    static private func buildSearchURL(with ingredients: String) -> URLRequest {
         let ingredients = ingredients.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)
         let completeURL = APIAssets.searchEndpoint
             + APIAssets.credentials
@@ -91,7 +91,7 @@ extension YummlyService {
     }
 
     /// Build a URL and return a  URLRequest to access an Yummly detailed recipe
-    static private func createGetURL(with recipeID: String) -> URLRequest {
+    static private func buildGetURL(with recipeID: String) -> URLRequest {
         let completeURL = APIAssets.getEndpoint
             + recipeID
             + APIAssets.get

@@ -16,12 +16,12 @@ enum RecipleaseOptionals {
 /// Unwrap optionals
 struct Unwrapper {
     /**
-     Unwrap optionals and prepare them for UI display
+     Unwrap optionals to prepare them for UI display
 
      - parameter optional: The optional to unwrap
      - parameter recipe: Item returned by the Yummly API
 
-     - Returns: A string, either the optional's value or n/a
+     - Returns: A string to display, either the optional's value or n/a
      */
     static func unwrap(_ optional: RecipleaseOptionals, for recipe: Any) -> String {
         switch optional {

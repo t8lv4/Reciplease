@@ -15,5 +15,6 @@ enum Image: String {
     launchScreenIcon = "launchScreenIcon",
     recipe = "recipe",
     defaultImage = "defaultImage",
-    defaultThumbnail = "defaultThumbnail"
+    defaultThumbnail = "defaultThumbnail",
+    exit = "exit"
 }

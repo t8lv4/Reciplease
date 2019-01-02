@@ -12,6 +12,8 @@ import UIKit
 class RecipeViewController: UIViewController {
     // MARK: - Properties
 
+    // VC ID
+
     /// List of ingredients from IngredientViewController
     var ingredients = String()
     /// Yummly search parameter
