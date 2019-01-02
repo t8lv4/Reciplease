@@ -12,6 +12,9 @@ import UIKit
 class DetailViewController: UIViewController {
     // MARK: - Properties
 
+    /// A detailed recipe source location.
+    /// Let user get recipe directions.
+    var detailedRecipeURL = ""
     /// Hold value from RecipeViewController
     var detailedRecipeID = ""
     /// Hold value from RecipeViewController
@@ -45,6 +48,10 @@ class DetailViewController: UIViewController {
     }
     /// Get recipe directions
     @IBAction func getDirections(_ sender: Any) {
+        print("get dir")
+            // open browser
+            let url = URL(string: detailedRecipeURL)!
+            UIApplication.shared.open(url)
     }
     /// Add recipe to favorite recipes
     @IBAction func createFavorite(_ sender: Any) {
@@ -65,6 +72,7 @@ extension DetailViewController {
 
         YummlyService.getRecipe(with: detailedRecipeID) { (success, resource) in
             if success, let detailedRecipe = resource as? DetailedRecipe {
+                self.detailedRecipeURL = detailedRecipe.source.sourceRecipeUrl
                 self.updateUI(with: detailedRecipe)
             } else {
                 // alert user

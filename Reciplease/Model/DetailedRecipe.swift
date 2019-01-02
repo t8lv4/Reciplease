@@ -15,7 +15,7 @@ struct DetailedRecipe: Decodable {
     let images: [Images]
 
     struct Source: Decodable {
-        let sourceRecipeUrl: String?
+        let sourceRecipeUrl: String
     }
 
     struct Images: Decodable {
