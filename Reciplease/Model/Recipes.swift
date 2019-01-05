@@ -7,7 +7,7 @@
 
 import Foundation
 
-/// Mirror Yummly's JSON structure
+/// Mirror Yummly's JSON structure for a list of recipes
 struct Recipes: Decodable {
     var matches: [Recipe]
     var totalMatchCount: Int

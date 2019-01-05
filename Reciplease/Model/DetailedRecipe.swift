@@ -8,6 +8,7 @@
 
 import Foundation
 
+/// Mirror the Yummly JSON structure for a detailed recipe
 struct DetailedRecipe: Decodable {
     let ingredientLines: [String]
     let numberOfServings: Int?

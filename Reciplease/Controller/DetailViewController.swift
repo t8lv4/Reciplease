@@ -23,6 +23,8 @@ class DetailViewController: UIViewController {
     var detailedRecipeRating = ""
     /// Hold value from RecipeViewController
     var detailedRecipeTime = ""
+    /// Hold value from RecipeViewController
+    var detailedRecipeIngredientsList = ""
 
     /// Recipe's name
     @IBOutlet weak var detailedRecipeNameLabel: UILabel!
@@ -53,6 +55,27 @@ class DetailViewController: UIViewController {
     }
     /// Add recipe to favorite recipes
     @IBAction func createFavorite(_ sender: Any) {
+        print("tapped fav")
+        storeFavorite()
+
+        favoriteButton.imageView?.image = UIImage(named: Image.favoriteFilled.rawValue)!
+    }
+
+    /// Store favorite recipe data to Reciplease Data Model
+    private func storeFavorite() {
+        let favorite = Favorite(context: AppDelegate.viewContext)
+
+        favorite.id = detailedRecipeID
+        favorite.name = detailedRecipeName
+        favorite.url = detailedRecipeURL
+        favorite.rating = detailedRecipeRating
+        favorite.time = detailedRecipeTime
+        favorite.ingredients = detailedRecipeIngredientsList
+        favorite.servings = detailedRecipeServingsLabel.text
+        favorite.image = (detailedRecipeImageView.image ?? UIImage(named: Image.defaultImage.rawValue)!).pngData()
+
+        try? AppDelegate.viewContext.save()
+        print("::::::::::: saved")
     }
 
     override func viewDidLoad() {
@@ -63,6 +86,8 @@ class DetailViewController: UIViewController {
         self.detailedRecipeTimeLabel.text = self.detailedRecipeTime
     }
 }
+
+// MARK: - Call API
 
 extension DetailViewController {
     override func viewWillAppear(_ animated: Bool) {
@@ -84,6 +109,7 @@ extension DetailViewController {
     private func updateUI(with detailedRecipe: DetailedRecipe) {
         self.detailedRecipeServingsLabel.text = Unwrapper.unwrap(.servings, for: detailedRecipe)
         self.ingredientsTextView.text = detailedRecipe.ingredientLines.joined(separator: "\n")
-        YummlyService.getImage(for: self.detailedRecipeImageView, from: detailedRecipe.images[0].hostedLargeUrl)
+        YummlyService.getImage(for: self.detailedRecipeImageView,
+                               from: detailedRecipe.images[0].hostedLargeUrl)
     }
 }

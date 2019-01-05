@@ -8,7 +8,7 @@
 
 import Foundation
 
-/// Hold lists if UI identifiers
+/// Hold lists of UI identifiers
 enum UIID {
     /// List segues IDs
     enum segue {
