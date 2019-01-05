@@ -23,6 +23,7 @@
 		90981DBF21AC076100DD3C86 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90981DBE21AC076100DD3C86 /* AppDelegate.swift */; };
 		90981DC421AC076100DD3C86 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 90981DC221AC076100DD3C86 /* Main.storyboard */; };
 		90981DD321AC504D00DD3C86 /* ImageEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90981DD221AC504D00DD3C86 /* ImageEnum.swift */; };
+		90AE9EA221E0C50F0053C68D /* FavoriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90AE9EA121E0C50F0053C68D /* FavoriteViewController.swift */; };
 		90CD56E321C2B75500F192A2 /* String+FormatUserInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90CD56E221C2B75500F192A2 /* String+FormatUserInput.swift */; };
 		90E8A41121AE949B005D3751 /* RecipeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90E8A41021AE949B005D3751 /* RecipeViewController.swift */; };
 		90FE739B21B7F4DD009A3AE1 /* Recipes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90FE739A21B7F4DD009A3AE1 /* Recipes.swift */; };
@@ -52,6 +53,7 @@
 		90981DC821AC076200DD3C86 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		90981DCA21AC076200DD3C86 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		90981DD221AC504D00DD3C86 /* ImageEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageEnum.swift; sourceTree = "<group>"; };
+		90AE9EA121E0C50F0053C68D /* FavoriteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteViewController.swift; sourceTree = "<group>"; };
 		90CD56E221C2B75500F192A2 /* String+FormatUserInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+FormatUserInput.swift"; sourceTree = "<group>"; };
 		90E8A41021AE949B005D3751 /* RecipeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RecipeViewController.swift; path = ../Controller/RecipeViewController.swift; sourceTree = "<group>"; };
 		90FE739A21B7F4DD009A3AE1 /* Recipes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Recipes.swift; sourceTree = "<group>"; };
@@ -86,6 +88,7 @@
 				907267DF21ADAE30008AE480 /* IngredientViewController.swift */,
 				90E8A41021AE949B005D3751 /* RecipeViewController.swift */,
 				900D093E21C7FF8B009EB7BA /* DetailViewController.swift */,
+				90AE9EA121E0C50F0053C68D /* FavoriteViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -311,6 +314,7 @@
 				906E4B0F21CFF94500106F66 /* Unwrapper.swift in Sources */,
 				904CC2F721B6C88A003A117A /* APIAssets.swift in Sources */,
 				904CC2F521B6C840003A117A /* YummlyService.swift in Sources */,
+				90AE9EA221E0C50F0053C68D /* FavoriteViewController.swift in Sources */,
 				907267E021ADAE30008AE480 /* IngredientViewController.swift in Sources */,
 				90981DD321AC504D00DD3C86 /* ImageEnum.swift in Sources */,
 				90FE739B21B7F4DD009A3AE1 /* Recipes.swift in Sources */,

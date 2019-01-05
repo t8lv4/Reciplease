@@ -12,8 +12,6 @@ import UIKit
 class RecipeViewController: UIViewController {
     // MARK: - Properties
 
-    // VC ID
-
     /// List of ingredients from IngredientViewController
     var ingredients = String()
     /// Yummly search parameter
@@ -27,6 +25,7 @@ class RecipeViewController: UIViewController {
     var recipeTime = ""
     /// Display recipes
     @IBOutlet weak var tableView: UITableView!
+    
 
     // MARK: - Methods
 
