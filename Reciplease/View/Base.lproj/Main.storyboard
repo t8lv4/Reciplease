@@ -170,6 +170,9 @@
                         <viewLayoutGuide key="safeArea" id="uwK-tH-OEt"/>
                     </view>
                     <navigationItem key="navigationItem" id="dJS-Bi-SHZ"/>
+                    <connections>
+                        <outlet property="favoriteTableView" destination="Ter-7R-NVh" id="OyA-IS-arR"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UQz-6k-TTG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

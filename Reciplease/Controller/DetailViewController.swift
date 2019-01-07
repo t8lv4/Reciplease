@@ -61,23 +61,6 @@ class DetailViewController: UIViewController {
         favoriteButton.imageView?.image = UIImage(named: Image.favoriteFilled.rawValue)!
     }
 
-    /// Store favorite recipe data to Reciplease Data Model
-    private func storeFavorite() {
-        let favorite = Favorite(context: AppDelegate.viewContext)
-
-        favorite.id = detailedRecipeID
-        favorite.name = detailedRecipeName
-        favorite.url = detailedRecipeURL
-        favorite.rating = detailedRecipeRating
-        favorite.time = detailedRecipeTime
-        favorite.ingredients = detailedRecipeIngredientsList
-        favorite.servings = detailedRecipeServingsLabel.text
-        favorite.image = (detailedRecipeImageView.image ?? UIImage(named: Image.defaultImage.rawValue)!).pngData()
-
-        try? AppDelegate.viewContext.save()
-        print("::::::::::: saved")
-    }
-
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -111,5 +94,26 @@ extension DetailViewController {
         self.ingredientsTextView.text = detailedRecipe.ingredientLines.joined(separator: "\n")
         YummlyService.getImage(for: self.detailedRecipeImageView,
                                from: detailedRecipe.images[0].hostedLargeUrl)
+    }
+}
+
+// MARK: - Save favorite data
+
+extension DetailViewController {
+    /// Store favorite recipe data to Reciplease data model
+    private func storeFavorite() {
+        let favorite = Favorite(context: AppDelegate.viewContext)
+
+        favorite.id = detailedRecipeID
+        favorite.name = detailedRecipeName
+        favorite.url = detailedRecipeURL
+        favorite.rating = detailedRecipeRating
+        favorite.time = detailedRecipeTime
+        favorite.ingredients = detailedRecipeIngredientsList
+        favorite.servings = detailedRecipeServingsLabel.text
+        favorite.image = (detailedRecipeImageView.image ?? UIImage(named: Image.defaultImage.rawValue)!).pngData()
+
+        do { try AppDelegate.viewContext.save() }
+        catch { print("favorite unsaved: \(error)")}
     }
 }

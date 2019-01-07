@@ -11,7 +11,10 @@ import UIKit
 class FavoriteViewController: UIViewController {
     // MARK: - Properties
 
-    let favorites = Favorite.all
+    /// Array of favorite recipes fetched from core data
+    var favorites = Favorite.all
+
+    @IBOutlet weak var favoriteTableView: UITableView!
 
     // MARK: - Methods
 
@@ -21,6 +24,8 @@ class FavoriteViewController: UIViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        favorites = Favorite.all
+        favoriteTableView.reloadData()
     }
 }
 
@@ -32,6 +37,8 @@ extension FavoriteViewController: UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        // if favorites.count == 0
+        // tell user how to create favs
         return favorites.count
     }
 
