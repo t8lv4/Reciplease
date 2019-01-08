@@ -80,34 +80,36 @@ extension YummlyService {
 
 extension YummlyService {
     /// Build a URL and return a  URLRequest to access Yummly recipes list
-    static private func buildSearchURL(with ingredients: String) -> URLRequest {
+    static private func buildSearchURL(with ingredients: String) -> URL {
         let ingredients = ingredients.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)
         let completeURL = APIAssets.searchEndpoint
             + APIAssets.credentials
             + APIAssets.search
             + ingredients!
 
-        return YummlyService.createRequest(with: completeURL)
+//        return YummlyService.createRequest(with: completeURL)
+        return URL(string: completeURL)!
     }
 
     /// Build a URL and return a  URLRequest to access an Yummly detailed recipe
-    static private func buildGetURL(with recipeID: String) -> URLRequest {
+    static private func buildGetURL(with recipeID: String) -> URL {
         let completeURL = APIAssets.getEndpoint
             + recipeID
             + APIAssets.get
             + APIAssets.credentials
 
-        return YummlyService.createRequest(with: completeURL)
+//        return YummlyService.createRequest(with: completeURL)
+        return URL(string: completeURL)!
     }
 
-    /// Create a URLRequest
-    static private func createRequest(with completeURL: String) -> URLRequest {
-        let url = URL(string: completeURL)!
-        let request = URLRequest(url: url)
-//        request.httpMethod = HTTPMethod.get.rawValue
-
-        return request
-    }
+//    /// Create a URLRequest
+//    static private func createRequest(with completeURL: String) -> URLRequest {
+//        let url = URL(string: completeURL)!
+//        let request = URLRequest(url: url)
+////        request.httpMethod = HTTPMethod.get.rawValue
+//
+//        return request
+//    }
 }
 
 // MARK: - Parse JSON

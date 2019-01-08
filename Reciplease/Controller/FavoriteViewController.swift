@@ -25,6 +25,9 @@ class FavoriteViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        favoriteTableView.reloadData()
+
+//        Favorite.deleteAll()
     }
 
     override func viewWillAppear(_ animated: Bool) {

@@ -30,11 +30,11 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var detailedRecipeNameLabel: UILabel!
     /// Recipe's servings number
     @IBOutlet weak var detailedRecipeServingsLabel: UILabel!
-    /// Recipe's rating or empty string
+    /// Recipe's rating or n/a
     @IBOutlet weak var detailedRecipeRatingLabel: UILabel!
-    /// Recipe's execution time or empty string
+    /// Recipe's execution time or n/a
     @IBOutlet weak var detailedRecipeTimeLabel: UILabel!
-    /// Hold an ingredients list
+    /// Hold ingredients list
     @IBOutlet weak var ingredientsTextView: UITextView!
     /// Favorite button
     @IBOutlet weak var favoriteButton: UIButton!
@@ -55,19 +55,9 @@ class DetailViewController: UIViewController {
     }
     /// Add recipe to favorite recipes
     @IBAction func createFavorite(_ sender: Any) {
-        print("tapped fav")
+        print("tapped fav button")
         storeFavorite()
-
 //        favoriteButton.imageView?.image = UIImage(named: Image.favoriteFilled.rawValue)!
-        favoriteButton.isSelected = true
-    }
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        self.detailedRecipeNameLabel.text = self.detailedRecipeName
-        self.detailedRecipeRatingLabel.text = self.detailedRecipeRating
-        self.detailedRecipeTimeLabel.text = self.detailedRecipeTime
     }
 }
 
@@ -76,7 +66,15 @@ class DetailViewController: UIViewController {
 extension DetailViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        callAPI()
+    }
 
+    /**
+     Call Yummly API to get a detailed recipe
+
+     If failed, alert user.
+     */
+    private func callAPI() {
         YummlyService.getRecipe(with: detailedRecipeID) { (success, resource) in
             if success, let detailedRecipe = resource as? DetailedRecipe {
                 self.detailedRecipeURL = detailedRecipe.source.sourceRecipeUrl
@@ -85,6 +83,18 @@ extension DetailViewController {
                 // alert user
             }
         }
+    }
+}
+
+    // MARK: - Update UI
+
+extension DetailViewController {
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        self.detailedRecipeNameLabel.text = self.detailedRecipeName
+        self.detailedRecipeRatingLabel.text = self.detailedRecipeRating
+        self.detailedRecipeTimeLabel.text = self.detailedRecipeTime
     }
 
     /**
@@ -98,16 +108,16 @@ extension DetailViewController {
     }
 }
 
-// MARK: - Save favorite data
+// MARK: - Save / Delete favorite data
 
 extension DetailViewController {
     /// Store favorite recipe data to Reciplease data model
     private func storeFavorite() {
         let favorite = Favorite(context: AppDelegate.viewContext)
-
+        
+        favorite.isFavorite = true
         favorite.id = detailedRecipeID
         favorite.name = detailedRecipeName
-        favorite.url = detailedRecipeURL
         favorite.rating = detailedRecipeRating
         favorite.time = detailedRecipeTime
         favorite.ingredients = detailedRecipeIngredientsList
@@ -115,6 +125,6 @@ extension DetailViewController {
         favorite.image = (detailedRecipeImageView.image ?? UIImage(named: Image.defaultImage.rawValue)!).pngData()
 
         do { try AppDelegate.viewContext.save() }
-        catch { print("favorite unsaved: \(error)")}
+        catch { print("unable to store favorite: \(error)")}
     }
 }
