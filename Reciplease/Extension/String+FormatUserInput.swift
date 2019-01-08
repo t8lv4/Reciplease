@@ -21,6 +21,7 @@ extension String {
     func format(with separator: String) -> String {
         let string = self.replacingOccurrences(of: "\\s+|\\s", with: " ", options: .regularExpression)
             .trimmingCharacters(in:.whitespacesAndNewlines)
+            .capitalized
         let stringSet = Set(string.components(separatedBy: " "))
         let formattedString = stringSet.joined(separator: separator)
 

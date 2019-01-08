@@ -116,7 +116,6 @@ extension RecipeViewController: UITableViewDelegate {
         var ratingString: String {
             return Unwrapper.unwrap(.rating, for: recipe)
         }
-
         var timeString: String {
             return Unwrapper.unwrap(.time, for: recipe)
         }

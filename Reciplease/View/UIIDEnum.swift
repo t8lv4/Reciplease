@@ -14,6 +14,7 @@ enum UIID {
     enum segue {
         static let showRecipeVC = "showRecipeVC"
         static let presentRecipeDetail = "presentRecipeDetail"
+        static let presentDetailedRecipe = "presentDetailedRecipe"
     }
 
     /// List view controllers IDs

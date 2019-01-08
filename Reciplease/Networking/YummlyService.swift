@@ -103,8 +103,8 @@ extension YummlyService {
     /// Create a URLRequest
     static private func createRequest(with completeURL: String) -> URLRequest {
         let url = URL(string: completeURL)!
-        var request = URLRequest(url: url)
-        request.httpMethod = HTTPMethod.get.rawValue
+        let request = URLRequest(url: url)
+//        request.httpMethod = HTTPMethod.get.rawValue
 
         return request
     }

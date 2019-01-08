@@ -172,6 +172,7 @@
                     <navigationItem key="navigationItem" id="dJS-Bi-SHZ"/>
                     <connections>
                         <outlet property="favoriteTableView" destination="Ter-7R-NVh" id="OyA-IS-arR"/>
+                        <segue destination="Yv1-io-HUc" kind="presentation" identifier="presentDetailedRecipe" id="YEW-SZ-IhC"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UQz-6k-TTG" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -327,6 +328,8 @@
                                         <state key="normal" image="favorite">
                                             <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
+                                        <state key="disabled" image="favorite"/>
+                                        <state key="selected" image="favoriteFilled"/>
                                         <connections>
                                             <action selector="createFavorite:" destination="Yv1-io-HUc" eventType="touchUpInside" id="ls4-ju-q4q"/>
                                         </connections>
@@ -587,4 +590,7 @@
         <image name="favoriteFilled" width="23" height="21"/>
         <image name="recipe" width="25" height="22"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="YEW-SZ-IhC"/>
+    </inferredMetricsTieBreakers>
 </document>

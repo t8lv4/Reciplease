@@ -48,7 +48,7 @@ class DetailViewController: UIViewController {
     @IBAction func dismiss(_ sender: Any) {
         dismiss(animated: true, completion: nil)
     }
-    /// Get recipe directions
+    /// Open default web browser to get recipe directions
     @IBAction func getDirections(_ sender: Any) {
             let url = URL(string: detailedRecipeURL)!
             UIApplication.shared.open(url)
@@ -58,7 +58,8 @@ class DetailViewController: UIViewController {
         print("tapped fav")
         storeFavorite()
 
-        favoriteButton.imageView?.image = UIImage(named: Image.favoriteFilled.rawValue)!
+//        favoriteButton.imageView?.image = UIImage(named: Image.favoriteFilled.rawValue)!
+        favoriteButton.isSelected = true
     }
 
     override func viewDidLoad() {
