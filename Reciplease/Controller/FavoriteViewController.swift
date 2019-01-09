@@ -91,3 +91,18 @@ extension FavoriteViewController: UITableViewDelegate {
         }
     }
 }
+
+// MARK: - Swipe to delete cell
+
+extension FavoriteViewController {
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            AppDelegate.viewContext.delete(favorites[indexPath.row])
+            favorites.remove(at: indexPath.row)
+            do { try AppDelegate.viewContext.save() }
+            catch { print("unable to delete stored favorite: \(error)") }
+
+            tableView.deleteRows(at: [indexPath], with: .automatic)
+        }
+    }
+}
