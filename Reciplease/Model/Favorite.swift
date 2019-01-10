@@ -25,8 +25,10 @@ class Favorite: NSManagedObject {
 // MARK: - Delete all favorites
 
 extension Favorite {
+    /// Delete all stored recipes
     static func deleteAll(viewContext: NSManagedObjectContext = AppDelegate.viewContext) {
         let delete = NSBatchDeleteRequest(fetchRequest: Favorite.fetchRequest())
-        let _ = try? viewContext.execute(delete)
+        do { try viewContext.execute(delete) }
+        catch { print("unable to delete all stored objects: \(error)") }
     }
 }

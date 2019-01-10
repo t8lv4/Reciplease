@@ -88,6 +88,7 @@ extension FavoriteViewController: UITableViewDelegate {
             detailVC.detailedRecipeName = recipeName
             detailVC.detailedRecipeRating = recipeRating
             detailVC.detailedRecipeTime = recipeTime
+            detailVC.detailedRecipeIsFavorite = true
         }
     }
 }

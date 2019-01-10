@@ -25,6 +25,8 @@ class DetailViewController: UIViewController {
     var detailedRecipeTime = ""
     /// Hold value from RecipeViewController
     var detailedRecipeIngredientsList = ""
+    /// Check favoriteButton states
+    var detailedRecipeIsFavorite = false
 
     /// Recipe's name
     @IBOutlet weak var detailedRecipeNameLabel: UILabel!
@@ -54,10 +56,15 @@ class DetailViewController: UIViewController {
             UIApplication.shared.open(url)
     }
     /// Add recipe to favorite recipes
-    @IBAction func createFavorite(_ sender: Any) {
+    @IBAction func toggleFavorite(_ sender: Any) {
         print("tapped fav button")
-        storeFavorite()
-//        favoriteButton.imageView?.image = UIImage(named: Image.favoriteFilled.rawValue)!
+        if !favoriteButton.isSelected {
+            favoriteButton.isSelected = true
+            storeFavorite()
+        } else {
+            favoriteButton.isSelected = false
+            // delete fav
+        }
     }
 }
 
@@ -66,6 +73,11 @@ class DetailViewController: UIViewController {
 extension DetailViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+
+        if detailedRecipeIsFavorite {
+            favoriteButton.isSelected = true
+        }
+
         callAPI()
     }
 

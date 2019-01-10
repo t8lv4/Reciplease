@@ -331,7 +331,7 @@
                                         <state key="disabled" image="favorite"/>
                                         <state key="selected" image="favoriteFilled"/>
                                         <connections>
-                                            <action selector="createFavorite:" destination="Yv1-io-HUc" eventType="touchUpInside" id="ls4-ju-q4q"/>
+                                            <action selector="toggleFavorite:" destination="Yv1-io-HUc" eventType="touchUpInside" id="ls4-ju-q4q"/>
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ingredients" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dsW-Cy-gU7">
