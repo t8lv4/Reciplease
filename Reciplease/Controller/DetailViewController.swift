@@ -12,6 +12,9 @@ import UIKit
 class DetailViewController: UIViewController {
     // MARK: - Properties
 
+    /// A detailed favorite recipe
+    var detailedFavorite: Favorite!
+
     /// A detailed recipe source location, required by the Yummly API.
     /// Let user get recipe directions.
     var detailedRecipeURL = ""
@@ -57,13 +60,12 @@ class DetailViewController: UIViewController {
     }
     /// Add recipe to favorite recipes
     @IBAction func toggleFavorite(_ sender: Any) {
-        print("tapped fav button")
         if !favoriteButton.isSelected {
             favoriteButton.isSelected = true
             storeFavorite()
         } else {
             favoriteButton.isSelected = false
-            // delete fav
+            deleteFavorite()
         }
     }
 }
@@ -125,18 +127,25 @@ extension DetailViewController {
 extension DetailViewController {
     /// Store favorite recipe data to Reciplease data model
     private func storeFavorite() {
-        let favorite = Favorite(context: AppDelegate.viewContext)
+        detailedFavorite = Favorite(context: AppDelegate.viewContext)
         
-        favorite.isFavorite = true
-        favorite.id = detailedRecipeID
-        favorite.name = detailedRecipeName
-        favorite.rating = detailedRecipeRating
-        favorite.time = detailedRecipeTime
-        favorite.ingredients = detailedRecipeIngredientsList
-        favorite.servings = detailedRecipeServingsLabel.text
-        favorite.image = (detailedRecipeImageView.image ?? UIImage(named: Image.defaultImage.rawValue)!).pngData()
+        detailedFavorite.isFavorite = true
+        detailedFavorite.id = detailedRecipeID
+        detailedFavorite.name = detailedRecipeName
+        detailedFavorite.rating = detailedRecipeRating
+        detailedFavorite.time = detailedRecipeTime
+        detailedFavorite.ingredients = detailedRecipeIngredientsList
+        detailedFavorite.servings = detailedRecipeServingsLabel.text
+        detailedFavorite.image = (detailedRecipeImageView.image ?? UIImage(named: Image.defaultImage.rawValue)!).pngData()
 
         do { try AppDelegate.viewContext.save() }
         catch { print("unable to store favorite: \(error)")}
+    }
+
+    private func deleteFavorite() {
+        detailedFavorite.managedObjectContext?.delete(detailedFavorite)
+        
+        do { try AppDelegate.viewContext.save()}
+        catch { print("unable to delete favorite: \(error)") }
     }
 }

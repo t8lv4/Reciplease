@@ -13,6 +13,7 @@ class FavoriteViewController: UIViewController {
 
     /// Array of favorite recipes fetched from core data
     var favorites = Favorite.all
+    var favorite: Favorite!
 
     var recipeID = ""
     var recipeName = ""
@@ -53,7 +54,7 @@ extension FavoriteViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: UIID.cell.listCell,
                                                        for: indexPath) as? ListTableViewCell else { return UITableViewCell() }
-        let favorite = favorites[indexPath.row]
+        favorite = favorites[indexPath.row]
 
         cell.configure(image: UIImage(data: favorite.image!)!,
                        name: favorite.name!,
@@ -70,7 +71,8 @@ extension FavoriteViewController: UITableViewDataSource {
 extension FavoriteViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let cell = tableView.cellForRow(at: indexPath)
-        let favorite = favorites[indexPath.row]
+        favorite = favorites[indexPath.row]
+        print(favorite)
 
         recipeID = favorite.id!
         recipeName = favorite.name!
@@ -84,6 +86,7 @@ extension FavoriteViewController: UITableViewDelegate {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == UIID.segue.presentDetailedRecipe {
             let detailVC = segue.destination as! DetailViewController
+            detailVC.detailedFavorite = favorite
             detailVC.detailedRecipeID = recipeID
             detailVC.detailedRecipeName = recipeName
             detailVC.detailedRecipeRating = recipeRating
