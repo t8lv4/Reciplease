@@ -25,12 +25,9 @@ class IngredientViewController: UIViewController {
     @IBAction func clearButton(_ sender: Any) {
         ingredientTextView.text = ""
     }
-    /// Hold user input,
+
     /// trigger a segue to RecipeViewController
-    @IBAction func doneButton(_ sender: UIButton) {
-        if ingredientTextView.text == "" { return }
-        // show alert
-    }
+    @IBAction func doneButton(_ sender: UIButton) {}
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == UIID.segue.showRecipeVC {

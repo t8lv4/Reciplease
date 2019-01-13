@@ -33,6 +33,10 @@ class FavoriteViewController: UIViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        if favorites.count == 0 {
+            presentVCAlert(with: AlertTitle.emptyFavorite.rawValue, and: AlertMessage.emptyFavorite.rawValue)
+        }
+        
         favorites = Favorite.all
         favoriteTableView.reloadData()
     }
@@ -46,8 +50,6 @@ extension FavoriteViewController: UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // if favorites.count == 0
-        // tell user how to create favs
         return favorites.count
     }
 

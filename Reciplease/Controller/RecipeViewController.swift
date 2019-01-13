@@ -51,7 +51,7 @@ extension RecipeViewController {
                 self.recipes = resource as! Recipes
                 self.tableView.reloadData()
             } else {
-                // alert user
+                self.presentVCAlert(with: AlertTitle.networking.rawValue, and: AlertMessage.networking.rawValue)
             }
         }
     }

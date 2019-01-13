@@ -45,6 +45,9 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var favoriteButton: UIButton!
     /// Recipe's image if available, else a default image
     @IBOutlet weak var detailedRecipeImageView: UIImageView!
+    @IBOutlet weak var getDirectionsButton: UIButton!
+    @IBOutlet weak var ingredientLabel: UILabel!
+    
     
 
     // MARK: - Methods
@@ -94,7 +97,8 @@ extension DetailViewController {
                 self.detailedRecipeURL = detailedRecipe.source.sourceRecipeUrl
                 self.updateUI(with: detailedRecipe)
             } else {
-                // alert user
+                self.cleanUI()
+                self.presentVCAlert(with: AlertTitle.networking.rawValue, and: AlertMessage.networking.rawValue)
             }
         }
     }
@@ -119,6 +123,13 @@ extension DetailViewController {
         self.ingredientsTextView.text = detailedRecipe.ingredientLines.joined(separator: "\n")
         YummlyService.getImage(for: self.detailedRecipeImageView,
                                from: detailedRecipe.images[0].hostedLargeUrl)
+    }
+
+    private func cleanUI() {
+        ingredientsTextView.text = ""
+        favoriteButton.isHidden = true
+        getDirectionsButton.isHidden = true
+        ingredientLabel.isHidden = true
     }
 }
 

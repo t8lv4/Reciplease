@@ -474,6 +474,8 @@
                         <outlet property="detailedRecipeServingsLabel" destination="4pb-Po-85Y" id="2af-dZ-gVu"/>
                         <outlet property="detailedRecipeTimeLabel" destination="dh1-dI-UsX" id="Bdg-gX-1zO"/>
                         <outlet property="favoriteButton" destination="4Ol-RA-txw" id="RDP-OU-Hjt"/>
+                        <outlet property="getDirectionsButton" destination="ecb-ak-NoR" id="eMa-sH-1XY"/>
+                        <outlet property="ingredientLabel" destination="dsW-Cy-gU7" id="I0J-1d-uAi"/>
                         <outlet property="ingredientsTextView" destination="2Q5-px-4vO" id="PQI-Ot-Co9"/>
                     </connections>
                 </viewController>
