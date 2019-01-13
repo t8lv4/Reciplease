@@ -187,6 +187,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="iXW-1O-QxR">
+                                <rect key="frame" x="0.0" y="315" width="375" height="37"/>
+                            </activityIndicatorView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Zj7-Im-hFn">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -283,15 +286,20 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="iXW-1O-QxR" firstAttribute="leading" secondItem="9F6-Jk-6cg" secondAttribute="leading" id="5Pa-1k-mQB"/>
+                            <constraint firstItem="iXW-1O-QxR" firstAttribute="top" secondItem="9F6-Jk-6cg" secondAttribute="top" constant="251" id="5ed-TM-4HN"/>
                             <constraint firstItem="Zj7-Im-hFn" firstAttribute="trailing" secondItem="9F6-Jk-6cg" secondAttribute="trailing" id="7BI-oE-Jyk"/>
                             <constraint firstItem="Zj7-Im-hFn" firstAttribute="top" secondItem="OyV-VE-BcX" secondAttribute="top" id="TKa-fK-i2Q"/>
                             <constraint firstItem="Zj7-Im-hFn" firstAttribute="leading" secondItem="9F6-Jk-6cg" secondAttribute="leading" id="gzB-bE-8Rl"/>
                             <constraint firstItem="Zj7-Im-hFn" firstAttribute="bottom" secondItem="9F6-Jk-6cg" secondAttribute="bottom" id="j2n-Iv-VdO"/>
+                            <constraint firstItem="9F6-Jk-6cg" firstAttribute="bottom" secondItem="iXW-1O-QxR" secondAttribute="bottom" constant="266" id="mT2-rS-cwq"/>
+                            <constraint firstItem="iXW-1O-QxR" firstAttribute="trailing" secondItem="9F6-Jk-6cg" secondAttribute="trailing" id="tM0-f2-Dkl"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="9F6-Jk-6cg"/>
                     </view>
                     <navigationItem key="navigationItem" id="Vvx-IL-5MH"/>
                     <connections>
+                        <outlet property="activityIndicatorView" destination="iXW-1O-QxR" id="CaA-j5-dUi"/>
                         <outlet property="tableView" destination="Zj7-Im-hFn" id="IXZ-uf-5ud"/>
                         <segue destination="Yv1-io-HUc" kind="presentation" identifier="presentRecipeDetail" id="3BL-be-QiR"/>
                     </connections>
@@ -363,6 +371,9 @@
                                             <action selector="getDirections:" destination="Yv1-io-HUc" eventType="touchUpInside" id="gs4-3j-MWh"/>
                                         </connections>
                                     </button>
+                                    <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="ydY-cT-gfi">
+                                        <rect key="frame" x="159" y="87" width="37" height="37"/>
+                                    </activityIndicatorView>
                                 </subviews>
                                 <color key="backgroundColor" red="0.66484129430000005" green="0.74673461910000005" blue="0.38995650409999999" alpha="0.5" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
@@ -372,10 +383,14 @@
                                     <constraint firstItem="ecb-ak-NoR" firstAttribute="leading" secondItem="EB3-lC-rnQ" secondAttribute="leading" constant="15" id="7eV-MT-SeA"/>
                                     <constraint firstAttribute="trailing" secondItem="ecb-ak-NoR" secondAttribute="trailing" constant="15" id="QPI-7p-U0q"/>
                                     <constraint firstItem="4Ol-RA-txw" firstAttribute="leading" relation="lessThanOrEqual" secondItem="dsW-Cy-gU7" secondAttribute="trailing" constant="124" id="TiH-pr-x0t"/>
+                                    <constraint firstItem="ecb-ak-NoR" firstAttribute="top" secondItem="ydY-cT-gfi" secondAttribute="bottom" constant="198" id="UWf-Zn-AH0"/>
                                     <constraint firstItem="2Q5-px-4vO" firstAttribute="top" secondItem="4Ol-RA-txw" secondAttribute="bottom" constant="15" id="ZjU-qt-BMp"/>
                                     <constraint firstAttribute="trailing" secondItem="4Ol-RA-txw" secondAttribute="trailing" constant="15" id="apn-Ts-Ntv"/>
+                                    <constraint firstItem="ydY-cT-gfi" firstAttribute="top" secondItem="EB3-lC-rnQ" secondAttribute="top" constant="87" id="gAx-fB-S1W"/>
                                     <constraint firstItem="2Q5-px-4vO" firstAttribute="leading" secondItem="EB3-lC-rnQ" secondAttribute="leading" constant="15" id="gbX-4m-grY"/>
+                                    <constraint firstItem="ydY-cT-gfi" firstAttribute="leading" secondItem="EB3-lC-rnQ" secondAttribute="leading" constant="159" id="hl2-qw-5pp"/>
                                     <constraint firstAttribute="bottom" secondItem="ecb-ak-NoR" secondAttribute="bottom" constant="15" id="ktH-Xk-4Ou"/>
+                                    <constraint firstAttribute="trailing" secondItem="ydY-cT-gfi" secondAttribute="trailing" constant="159" id="lcd-Ck-PDw"/>
                                     <constraint firstAttribute="trailing" secondItem="2Q5-px-4vO" secondAttribute="trailing" constant="15" id="o3L-YS-Lep"/>
                                     <constraint firstItem="dsW-Cy-gU7" firstAttribute="leading" secondItem="EB3-lC-rnQ" secondAttribute="leading" constant="17" id="y7G-2i-Dgl"/>
                                 </constraints>
@@ -468,6 +483,7 @@
                         <viewLayoutGuide key="safeArea" id="FLs-ni-HOT"/>
                     </view>
                     <connections>
+                        <outlet property="activityIndicatorView" destination="ydY-cT-gfi" id="MjR-AE-hSG"/>
                         <outlet property="detailedRecipeImageView" destination="7de-DM-rvB" id="2ne-Vd-Hgg"/>
                         <outlet property="detailedRecipeNameLabel" destination="KeN-bE-wiu" id="8Dc-tR-xPh"/>
                         <outlet property="detailedRecipeRatingLabel" destination="cyq-Mw-QUp" id="XsD-AD-AUF"/>

@@ -20,7 +20,7 @@ class ListTableViewCell: UITableViewCell {
     /// Recipe's rating
     @IBOutlet weak var ratingLabel: UILabel!
     /// Preparation time
-    @IBOutlet weak var timeLabel: UILabel!
+    @IBOutlet weak var timeLabel: UILabel!    
 
     override func awakeFromNib() {
         super.awakeFromNib()

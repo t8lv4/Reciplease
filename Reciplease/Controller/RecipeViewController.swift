@@ -25,8 +25,8 @@ class RecipeViewController: UIViewController {
     var recipeTime = ""
     /// Display recipes
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var activityIndicatorView: UIActivityIndicatorView!
     
-
     // MARK: - Methods
 
     override func viewDidLoad() {
@@ -45,8 +45,12 @@ extension RecipeViewController {
 
     /// Call Yummly API with an ingredients list
     private func requestRecipes() {
+        toggleActivityIndicator(activityIndicatorView, shown: true)
         ingredientsList = ingredients.format(with: " ")
+
         YummlyService.searchRecipes(with: ingredientsList) { (success, resource) in
+            self.toggleActivityIndicator(self.activityIndicatorView, shown: false)
+
             if success, let resource = resource {
                 self.recipes = resource as! Recipes
                 self.tableView.reloadData()

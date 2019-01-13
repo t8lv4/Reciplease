@@ -47,6 +47,7 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var detailedRecipeImageView: UIImageView!
     @IBOutlet weak var getDirectionsButton: UIButton!
     @IBOutlet weak var ingredientLabel: UILabel!
+    @IBOutlet weak var activityIndicatorView: UIActivityIndicatorView!
     
     
 
@@ -92,7 +93,11 @@ extension DetailViewController {
      If failed, alert user.
      */
     private func callAPI() {
+        toggleActivityIndicator(activityIndicatorView, shown: true)
+
         YummlyService.getRecipe(with: detailedRecipeID) { (success, resource) in
+            self.toggleActivityIndicator(self.activityIndicatorView, shown: false)
+
             if success, let detailedRecipe = resource as? DetailedRecipe {
                 self.detailedRecipeURL = detailedRecipe.source.sourceRecipeUrl
                 self.updateUI(with: detailedRecipe)
