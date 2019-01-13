@@ -26,7 +26,7 @@ class IngredientViewController: UIViewController {
         ingredientTextView.text = ""
     }
 
-    /// trigger a segue to RecipeViewController
+    /// Trigger a segue to RecipeViewController
     @IBAction func doneButton(_ sender: UIButton) {}
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
