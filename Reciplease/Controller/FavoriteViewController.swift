@@ -14,6 +14,9 @@ class FavoriteViewController: UIViewController {
     /// Array of favorite recipes fetched from core data
     var favorites = Favorite.all
     var favorite: Favorite!
+    /// To know if the pop-up alert has already
+    /// been shown
+    var neverShown = true
 
     var recipeID = ""
     var recipeName = ""
@@ -33,12 +36,14 @@ class FavoriteViewController: UIViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        if favorites.count == 0 {
-            presentVCAlert(with: AlertTitle.emptyFavorite.rawValue, and: AlertMessage.emptyFavorite.rawValue)
-        }
-        
+
         favorites = Favorite.all
         favoriteTableView.reloadData()
+
+        if neverShown, favorites.count == 0 {
+            presentVCAlert(with: AlertTitle.emptyFavorite.rawValue, and: AlertMessage.emptyFavorite.rawValue)
+            neverShown = false
+        }
     }
 }
 
