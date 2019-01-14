@@ -56,10 +56,19 @@ extension RecipeViewController {
 
             if success, let resource = resource {
                 self.recipes = resource as! Recipes
+
+                self.checkRecipeCount(self.recipes)
+
                 self.tableView.reloadData()
             } else {
-                self.presentVCAlert(with: AlertTitle.networking.rawValue, and: AlertMessage.networking.rawValue)
+                self.presentVCAlert(title: .networking, message: .networking)
             }
+        }
+    }
+
+    private func checkRecipeCount(_ recipes: Recipes) {
+        if self.recipes.matches.count == 0 {
+            self.presentVCAlert(title: .noRecipe, message: .noRecipe)
         }
     }
 }

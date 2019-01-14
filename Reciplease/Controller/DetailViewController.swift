@@ -103,7 +103,7 @@ extension DetailViewController {
                 self.updateUI(with: detailedRecipe)
             } else {
                 self.cleanUI()
-                self.presentVCAlert(with: AlertTitle.networking.rawValue, and: AlertMessage.networking.rawValue)
+                self.presentVCAlert(title: .networking, message: .networking)
             }
         }
     }

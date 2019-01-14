@@ -52,7 +52,7 @@ extension FavoriteViewController {
     /// Present an alert VC
     private func popUpAlert() {
         if neverShown, favorites.count == 0 {
-            presentVCAlert(with: AlertTitle.emptyFavorite.rawValue, and: AlertMessage.emptyFavorite.rawValue)
+            presentVCAlert(title: .emptyFavorite, message: .emptyFavorite)
             neverShown = false
         }
     }

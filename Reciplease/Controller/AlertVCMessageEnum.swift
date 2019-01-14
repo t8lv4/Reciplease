@@ -11,6 +11,7 @@ import Foundation
 enum AlertTitle: String {
     case networking = "🤔"
     case emptyFavorite = "Create Your Favorites!"
+    case noRecipe = "😯"
 }
 
 enum AlertMessage: String {
@@ -19,4 +20,5 @@ enum AlertMessage: String {
     To create a favorite recipe,
     tap the 💛 button on the recipe page.
     """
+    case noRecipe = "No recipe matches your ingredients list."
 }
