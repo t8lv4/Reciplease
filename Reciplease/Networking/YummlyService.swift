@@ -64,7 +64,11 @@ extension YummlyService {
      - parameter recipeURL: The image location
      */
     static func getImage(for view: UIImageView, from recipeURL: String?) {
-        let url = URL(string: recipeURL!)!
+        guard let url = URL(string: recipeURL!) else {
+            print("wrong url")
+            return
+        }
+
         let options = ImageLoadingOptions(
             placeholder: UIImage(named: Image.defaultImage.rawValue),
             transition: .fadeIn(duration: 0.3)
