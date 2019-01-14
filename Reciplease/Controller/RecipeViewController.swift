@@ -46,10 +46,13 @@ extension RecipeViewController {
     /// Call Yummly API with an ingredients list
     private func requestRecipes() {
         toggleActivityIndicator(activityIndicatorView, shown: true)
+        tableView.isHidden = true
+
         ingredientsList = ingredients.format(with: " ")
 
         YummlyService.searchRecipes(with: ingredientsList) { (success, resource) in
             self.toggleActivityIndicator(self.activityIndicatorView, shown: false)
+            self.tableView.isHidden = false
 
             if success, let resource = resource {
                 self.recipes = resource as! Recipes
