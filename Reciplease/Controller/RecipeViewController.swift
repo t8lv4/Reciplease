@@ -50,7 +50,7 @@ extension RecipeViewController {
 
         ingredientsList = ingredients.format(with: " ")
 
-        YummlyService.searchRecipes(with: ingredientsList) { (success, resource) in
+        RecipeService.request(with: ingredientsList) { (success, resource) in
             self.toggleActivityIndicator(self.activityIndicatorView, shown: false)
             self.tableView.isHidden = false
 
@@ -92,7 +92,7 @@ extension RecipeViewController: UITableViewDataSource {
         ingredientsList = ingredients.format(with: ", ") + ", ..."
 
         configureCell(for: cell, and: recipe, with: ingredientsList)
-        YummlyService.getImage(for: cell.recipeImage, from: recipe.smallImageUrls?[0])
+        ImageService.getImage(for: cell.recipeImage, from: recipe.smallImageUrls?[0])
 
         return cell
     }

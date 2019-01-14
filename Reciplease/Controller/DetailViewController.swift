@@ -95,7 +95,7 @@ extension DetailViewController {
     private func callAPI() {
         toggleActivityIndicator(activityIndicatorView, shown: true)
 
-        YummlyService.getRecipe(with: detailedRecipeID) { (success, resource) in
+        DetailService.request(with: detailedRecipeID) { (success, resource) in
             self.toggleActivityIndicator(self.activityIndicatorView, shown: false)
 
             if success, let detailedRecipe = resource as? DetailedRecipe {
@@ -126,7 +126,7 @@ extension DetailViewController {
     private func updateUI(with detailedRecipe: DetailedRecipe) {
         self.detailedRecipeServingsLabel.text = Unwrapper.unwrap(.servings, for: detailedRecipe)
         self.ingredientsTextView.text = detailedRecipe.ingredientLines.joined(separator: "\n")
-        YummlyService.getImage(for: self.detailedRecipeImageView,
+        ImageService.getImage(for: self.detailedRecipeImageView,
                                from: detailedRecipe.images[0].hostedLargeUrl)
     }
 
