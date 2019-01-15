@@ -145,7 +145,6 @@ extension DetailViewController {
     private func storeFavorite() {
         detailedFavorite = Favorite(context: AppDelegate.viewContext)
         
-        detailedFavorite.isFavorite = true
         detailedFavorite.id = detailedRecipeID
         detailedFavorite.name = detailedRecipeName
         detailedFavorite.rating = detailedRecipeRating

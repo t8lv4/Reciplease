@@ -23,7 +23,8 @@ class IngredientViewController: UIViewController {
 
     /// Clear ingredients list
     @IBAction func clearButton(_ sender: Any) {
-        ingredientTextView.text = ""
+        ingredientTextView.text = "Add your ingredients"
+        ingredientTextView.resignFirstResponder()
     }
 
     /// Trigger a segue to RecipeViewController
@@ -43,7 +44,6 @@ extension IngredientViewController: UITextViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         ingredientTextView.delegate = self
-        // set buttons corners and shadows
     }
 
     func textViewDidBeginEditing(_ textView: UITextView) {
