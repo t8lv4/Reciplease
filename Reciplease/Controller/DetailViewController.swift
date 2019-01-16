@@ -158,7 +158,7 @@ extension DetailViewController {
     }
 
     private func deleteFavorite() {
-        detailedFavorite.managedObjectContext?.delete(detailedFavorite)
+        self.detailedFavorite.managedObjectContext?.delete(self.detailedFavorite)
         
         do { try AppDelegate.viewContext.save()}
         catch { print("unable to delete favorite: \(error)") }

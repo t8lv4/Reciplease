@@ -17,8 +17,12 @@ struct ImageService {
      - parameter recipeURL: The image location
      */
     static func getImage(for view: UIImageView, from recipeURL: String?) {
-        guard let url = URL(string: recipeURL!) else {
-            print("wrong url")
+        guard let smallImageURL = recipeURL else {
+            print("no small image url")
+            return
+        }
+        guard let url = URL(string: smallImageURL) else {
+            print("wrong small image url")
             return
         }
 

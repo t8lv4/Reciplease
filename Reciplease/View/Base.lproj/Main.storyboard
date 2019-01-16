@@ -609,7 +609,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qiP-yo-an0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3126" y="-150"/>
+            <point key="canvasLocation" x="1905" y="257"/>
         </scene>
         <!--Recipe-->
         <scene sceneID="nGh-Y8-QMv">
@@ -755,6 +755,6 @@
         <image name="recipe" width="25" height="22"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="YEW-SZ-IhC"/>
+        <segue reference="3BL-be-QiR"/>
     </inferredMetricsTieBreakers>
 </document>
