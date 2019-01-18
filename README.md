@@ -6,3 +6,4 @@ Reciplease allows to
 
 + get recipes according to a list of  ingredients
 + save recipes to favorites
++ search favorite recipes by ingredients
