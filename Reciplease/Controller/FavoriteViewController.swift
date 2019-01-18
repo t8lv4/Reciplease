@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import CoreData
 
 class FavoriteViewController: UIViewController {
     // MARK: - Properties
@@ -134,19 +133,8 @@ extension FavoriteViewController {
 
 extension FavoriteViewController: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        favorites = search(searchBar.text!)
+        favorites = Favorite.search(searchBar.text!)
         favoriteTableView.reloadData()
-    }
-
-    private func search(_ ingredients: String) -> [Favorite] {
-        let request: NSFetchRequest<Favorite> = Favorite.fetchRequest()
-        request.predicate = NSPredicate(format: "ingredients CONTAINS[cd] %@", ingredients)
-        request.sortDescriptors = [NSSortDescriptor(key: "ingredients", ascending: true)]
-
-        do { searchArray = try AppDelegate.viewContext.fetch(request) }
-        catch { print("unable to fetch search request", error) }
-
-        return searchArray
     }
 
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
@@ -157,7 +145,6 @@ extension FavoriteViewController: UISearchBarDelegate {
             DispatchQueue.main.async {
                 searchBar.resignFirstResponder()
             }
-
         }
     }
 }

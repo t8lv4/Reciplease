@@ -13,6 +13,8 @@ import CoreData
 class Favorite: NSManagedObject {
     // MARK: - Properties
 
+    private static var searchArray: [Favorite]!
+
     static var all: [Favorite] {
         let request: NSFetchRequest<Favorite> = Favorite.fetchRequest()
         guard let favorites = try? AppDelegate.viewContext.fetch(request) else {
@@ -25,7 +27,17 @@ class Favorite: NSManagedObject {
 // MARK: - Search
 
 extension Favorite {
-    
+    /// Search for ingredients (case and diacritic insensitive
+    static func search(_ ingredients: String) -> [Favorite] {
+        let request: NSFetchRequest<Favorite> = Favorite.fetchRequest()
+        request.predicate = NSPredicate(format: "ingredients CONTAINS[cd] %@", ingredients)
+        request.sortDescriptors = [NSSortDescriptor(key: "ingredients", ascending: true)]
+
+        do { searchArray = try AppDelegate.viewContext.fetch(request) }
+        catch { print("unable to fetch search request", error) }
+
+        return searchArray
+    }
 }
 
 // MARK: - Delete all favorites
