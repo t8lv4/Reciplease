@@ -22,6 +22,12 @@ class Favorite: NSManagedObject {
     }
 }
 
+// MARK: - Search
+
+extension Favorite {
+    
+}
+
 // MARK: - Delete all favorites
 
 extension Favorite {

@@ -30,6 +30,8 @@ struct RecipeService: Serviceable {
             + APIAssets.search
             + ingredients!
 
+        print("completeURL", completeURL)
+
         return URL(string: completeURL)!
     }
 }

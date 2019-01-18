@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 class FavoriteViewController: UIViewController {
     // MARK: - Properties
@@ -14,6 +15,7 @@ class FavoriteViewController: UIViewController {
     /// Array of favorite recipes fetched from core data
     var favorites = Favorite.all
     var favorite: Favorite!
+    var searchArray: [Favorite]!
     /// To know if the user has already seen
     /// the pop-up alert
     var neverShown = true
@@ -124,6 +126,38 @@ extension FavoriteViewController {
             catch { print("unable to delete stored favorite: \(error)") }
 
             tableView.deleteRows(at: [indexPath], with: .automatic)
+        }
+    }
+}
+
+// MARK: - Search
+
+extension FavoriteViewController: UISearchBarDelegate {
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        favorites = search(searchBar.text!)
+        favoriteTableView.reloadData()
+    }
+
+    private func search(_ ingredients: String) -> [Favorite] {
+        let request: NSFetchRequest<Favorite> = Favorite.fetchRequest()
+        request.predicate = NSPredicate(format: "ingredients CONTAINS[cd] %@", ingredients)
+        request.sortDescriptors = [NSSortDescriptor(key: "ingredients", ascending: true)]
+
+        do { searchArray = try AppDelegate.viewContext.fetch(request) }
+        catch { print("unable to fetch search request", error) }
+
+        return searchArray
+    }
+
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        if searchBar.text?.count == 0 {
+            favorites = Favorite.all
+            favoriteTableView.reloadData()
+
+            DispatchQueue.main.async {
+                searchBar.resignFirstResponder()
+            }
+
         }
     }
 }
