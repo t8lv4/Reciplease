@@ -81,10 +81,10 @@ extension DetailViewController {
         super.viewWillAppear(animated)
 
         if detailedRecipeIsFavorite {
-            favoriteButton.isSelected = true
+            loadFavorite()
+        } else if !detailedRecipeIsFavorite {
+            callAPI()
         }
-
-        callAPI()
     }
 
     /**
@@ -121,13 +121,25 @@ extension DetailViewController {
     }
 
     /**
+     Toggle favorite button to .isSelected and load stored values to update UI
+     */
+    private func loadFavorite() {
+        favoriteButton.isSelected = true
+
+        detailedRecipeImageView.image = UIImage(data: detailedFavorite.image!)
+        detailedRecipeServingsLabel.text = detailedFavorite.servings
+        ingredientsTextView.text = detailedFavorite.ingredientsList
+        detailedRecipeURL = detailedFavorite.detailedRecipeURL!
+    }
+
+    /**
      Update UI objects with recipe elements fetched from Yummly
      */
     private func updateUI(with detailedRecipe: DetailedRecipe) {
         self.detailedRecipeServingsLabel.text = Unwrapper.unwrap(.servings, for: detailedRecipe)
         self.ingredientsTextView.text = detailedRecipe.ingredientLines.joined(separator: "\n")
         ImageService.getImage(for: self.detailedRecipeImageView,
-                               from: detailedRecipe.images[0].hostedLargeUrl)
+                              from: detailedRecipe.images[0].hostedLargeUrl)
     }
 
     private func cleanUI() {
@@ -144,12 +156,14 @@ extension DetailViewController {
     /// Store favorite recipe data to Reciplease data model
     private func storeFavorite() {
         detailedFavorite = Favorite(context: AppDelegate.viewContext)
-        
-        detailedFavorite.id = detailedRecipeID
+
+        detailedFavorite.detailedRecipeURL = detailedRecipeURL
         detailedFavorite.name = detailedRecipeName
         detailedFavorite.rating = detailedRecipeRating
         detailedFavorite.time = detailedRecipeTime
         detailedFavorite.ingredients = detailedRecipeIngredientsList
+        
+        detailedFavorite.ingredientsList = self.ingredientsTextView.text
         detailedFavorite.servings = detailedRecipeServingsLabel.text
         detailedFavorite.image = (detailedRecipeImageView.image ?? UIImage(named: Image.defaultImage.rawValue)!).pngData()
 

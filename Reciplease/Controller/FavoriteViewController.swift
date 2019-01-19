@@ -91,7 +91,6 @@ extension FavoriteViewController: UITableViewDelegate {
         let cell = tableView.cellForRow(at: indexPath)
         favorite = favorites[indexPath.row]
 
-        recipeID = favorite.id!
         recipeName = favorite.name!
         recipeRating = favorite.rating!
         recipeTime = favorite.time!
@@ -104,7 +103,6 @@ extension FavoriteViewController: UITableViewDelegate {
         if segue.identifier == UIID.segue.presentDetailedRecipe {
             let detailVC = segue.destination as! DetailViewController
             detailVC.detailedFavorite = favorite
-            detailVC.detailedRecipeID = recipeID
             detailVC.detailedRecipeName = recipeName
             detailVC.detailedRecipeRating = recipeRating
             detailVC.detailedRecipeTime = recipeTime
