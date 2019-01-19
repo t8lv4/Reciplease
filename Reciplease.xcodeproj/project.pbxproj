@@ -28,6 +28,7 @@
 		90AE9EA521E0E85F0053C68D /* Reciplease.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 90AE9EA321E0E85F0053C68D /* Reciplease.xcdatamodeld */; };
 		90AE9EA721E0EA700053C68D /* Favorite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90AE9EA621E0EA700053C68D /* Favorite.swift */; };
 		90CD56E321C2B75500F192A2 /* String+FormatUserInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90CD56E221C2B75500F192A2 /* String+FormatUserInput.swift */; };
+		90D8320521F315FB008B22E3 /* UnwrapperTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90D8320421F315FB008B22E3 /* UnwrapperTestCase.swift */; };
 		90E8A41121AE949B005D3751 /* RecipeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90E8A41021AE949B005D3751 /* RecipeViewController.swift */; };
 		90F9C6F621ECD84300F25F94 /* UIView+Shadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90F9C6F521ECD84300F25F94 /* UIView+Shadow.swift */; };
 		90F9C6F821ECDC8600F25F94 /* UIView+Corner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90F9C6F721ECDC8600F25F94 /* UIView+Corner.swift */; };
@@ -39,6 +40,16 @@
 		90FF495121D5478C00220FE0 /* DetailedRecipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90FF495021D5478C00220FE0 /* DetailedRecipe.swift */; };
 		C43088F665729A156C493663 /* Pods_Reciplease.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B231B05EE2A91CE401335CD /* Pods_Reciplease.framework */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		90D831FF21F31597008B22E3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 90981DB321AC076100DD3C86 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 90981DBA21AC076100DD3C86;
+			remoteInfo = Reciplease;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		1B231B05EE2A91CE401335CD /* Pods_Reciplease.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Reciplease.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -67,6 +78,9 @@
 		90AE9EA421E0E85F0053C68D /* Reciplease.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Reciplease.xcdatamodel; sourceTree = "<group>"; };
 		90AE9EA621E0EA700053C68D /* Favorite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Favorite.swift; sourceTree = "<group>"; };
 		90CD56E221C2B75500F192A2 /* String+FormatUserInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+FormatUserInput.swift"; sourceTree = "<group>"; };
+		90D831FA21F31597008B22E3 /* RecipleaseTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RecipleaseTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		90D831FE21F31597008B22E3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		90D8320421F315FB008B22E3 /* UnwrapperTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnwrapperTestCase.swift; sourceTree = "<group>"; };
 		90E8A41021AE949B005D3751 /* RecipeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RecipeViewController.swift; path = ../Controller/RecipeViewController.swift; sourceTree = "<group>"; };
 		90F9C6F521ECD84300F25F94 /* UIView+Shadow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Shadow.swift"; sourceTree = "<group>"; };
 		90F9C6F721ECDC8600F25F94 /* UIView+Corner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Corner.swift"; sourceTree = "<group>"; };
@@ -84,6 +98,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				C43088F665729A156C493663 /* Pods_Reciplease.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		90D831F721F31597008B22E3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -119,6 +140,7 @@
 			isa = PBXGroup;
 			children = (
 				90981DBD21AC076100DD3C86 /* Reciplease */,
+				90D831FB21F31597008B22E3 /* RecipleaseTests */,
 				90981DBC21AC076100DD3C86 /* Products */,
 				AA8650A5D855D188DB8E16A6 /* Pods */,
 				D2BE26CD1BBBA606856E5FF8 /* Frameworks */,
@@ -129,6 +151,7 @@
 			isa = PBXGroup;
 			children = (
 				90981DBB21AC076100DD3C86 /* Reciplease.app */,
+				90D831FA21F31597008B22E3 /* RecipleaseTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -193,6 +216,15 @@
 			path = Extension;
 			sourceTree = "<group>";
 		};
+		90D831FB21F31597008B22E3 /* RecipleaseTests */ = {
+			isa = PBXGroup;
+			children = (
+				90D831FE21F31597008B22E3 /* Info.plist */,
+				90D8320421F315FB008B22E3 /* UnwrapperTestCase.swift */,
+			);
+			path = RecipleaseTests;
+			sourceTree = "<group>";
+		};
 		90F9C6F921ECEC3B00F25F94 /* Store */ = {
 			isa = PBXGroup;
 			children = (
@@ -241,6 +273,24 @@
 			productReference = 90981DBB21AC076100DD3C86 /* Reciplease.app */;
 			productType = "com.apple.product-type.application";
 		};
+		90D831F921F31597008B22E3 /* RecipleaseTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 90D8320121F31597008B22E3 /* Build configuration list for PBXNativeTarget "RecipleaseTests" */;
+			buildPhases = (
+				90D831F621F31597008B22E3 /* Sources */,
+				90D831F721F31597008B22E3 /* Frameworks */,
+				90D831F821F31597008B22E3 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				90D8320021F31597008B22E3 /* PBXTargetDependency */,
+			);
+			name = RecipleaseTests;
+			productName = RecipleaseTests;
+			productReference = 90D831FA21F31597008B22E3 /* RecipleaseTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -253,6 +303,11 @@
 				TargetAttributes = {
 					90981DBA21AC076100DD3C86 = {
 						CreatedOnToolsVersion = 10.1;
+					};
+					90D831F921F31597008B22E3 = {
+						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1010;
+						TestTargetID = 90981DBA21AC076100DD3C86;
 					};
 				};
 			};
@@ -270,6 +325,7 @@
 			projectRoot = "";
 			targets = (
 				90981DBA21AC076100DD3C86 /* Reciplease */,
+				90D831F921F31597008B22E3 /* RecipleaseTests */,
 			);
 		};
 /* End PBXProject section */
@@ -284,6 +340,13 @@
 				900D0EA421AD5F9300AE536C /* Assets.xcassets in Resources */,
 				9070221D21AD909A004D8BD1 /* SourceSansPro-Light.otf in Resources */,
 				90981DC421AC076100DD3C86 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		90D831F821F31597008B22E3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -371,7 +434,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		90D831F621F31597008B22E3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				90D8320521F315FB008B22E3 /* UnwrapperTestCase.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		90D8320021F31597008B22E3 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 90981DBA21AC076100DD3C86 /* Reciplease */;
+			targetProxy = 90D831FF21F31597008B22E3 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		90981DC221AC076100DD3C86 /* Main.storyboard */ = {
@@ -549,6 +628,51 @@
 			};
 			name = Release;
 		};
+		90D8320221F31597008B22E3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 9T22T3H63N;
+				INFOPLIST_FILE = RecipleaseTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = fr.t8lv4.RecipleaseTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Reciplease.app/Reciplease";
+			};
+			name = Debug;
+		};
+		90D8320321F31597008B22E3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 9T22T3H63N;
+				INFOPLIST_FILE = RecipleaseTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = fr.t8lv4.RecipleaseTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Reciplease.app/Reciplease";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -566,6 +690,15 @@
 			buildConfigurations = (
 				90981DCE21AC076200DD3C86 /* Debug */,
 				90981DCF21AC076200DD3C86 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		90D8320121F31597008B22E3 /* Build configuration list for PBXNativeTarget "RecipleaseTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				90D8320221F31597008B22E3 /* Debug */,
+				90D8320321F31597008B22E3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
