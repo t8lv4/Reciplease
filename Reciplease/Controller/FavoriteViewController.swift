@@ -14,7 +14,6 @@ class FavoriteViewController: UIViewController {
     /// Array of favorite recipes fetched from core data
     var favorites = Favorite.all
     var favorite: Favorite!
-    var searchArray: [Favorite]!
     /// To know if the user has already seen
     /// the pop-up alert
     var neverShown = true

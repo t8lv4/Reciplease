@@ -34,7 +34,7 @@ extension Favorite {
         request.sortDescriptors = [NSSortDescriptor(key: "ingredients", ascending: true)]
 
         do { searchArray = try AppDelegate.viewContext.fetch(request) }
-        catch { print("unable to fetch search request", error) }
+        catch { print("unable to fetch search request: ", error) }
 
         return searchArray
     }
@@ -47,6 +47,6 @@ extension Favorite {
     static func deleteAll(viewContext: NSManagedObjectContext = AppDelegate.viewContext) {
         let delete = NSBatchDeleteRequest(fetchRequest: Favorite.fetchRequest())
         do { try viewContext.execute(delete) }
-        catch { print("unable to delete all stored objects: \(error)") }
+        catch { print("unable to delete all stored objects: ", error) }
     }
 }
