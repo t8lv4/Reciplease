@@ -29,6 +29,7 @@
 		90AE9EA721E0EA700053C68D /* Favorite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90AE9EA621E0EA700053C68D /* Favorite.swift */; };
 		90CD56E321C2B75500F192A2 /* String+FormatUserInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90CD56E221C2B75500F192A2 /* String+FormatUserInput.swift */; };
 		90D8320521F315FB008B22E3 /* UnwrapperTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90D8320421F315FB008B22E3 /* UnwrapperTestCase.swift */; };
+		90E6949E21F633E50043567C /* String+FormatUserInputTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90E6949D21F633E50043567C /* String+FormatUserInputTest.swift */; };
 		90E8A41121AE949B005D3751 /* RecipeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90E8A41021AE949B005D3751 /* RecipeViewController.swift */; };
 		90F9C6F621ECD84300F25F94 /* UIView+Shadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90F9C6F521ECD84300F25F94 /* UIView+Shadow.swift */; };
 		90F9C6F821ECDC8600F25F94 /* UIView+Corner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90F9C6F721ECDC8600F25F94 /* UIView+Corner.swift */; };
@@ -81,6 +82,7 @@
 		90D831FA21F31597008B22E3 /* RecipleaseTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RecipleaseTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		90D831FE21F31597008B22E3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		90D8320421F315FB008B22E3 /* UnwrapperTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnwrapperTestCase.swift; sourceTree = "<group>"; };
+		90E6949D21F633E50043567C /* String+FormatUserInputTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+FormatUserInputTest.swift"; sourceTree = "<group>"; };
 		90E8A41021AE949B005D3751 /* RecipeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RecipeViewController.swift; path = ../Controller/RecipeViewController.swift; sourceTree = "<group>"; };
 		90F9C6F521ECD84300F25F94 /* UIView+Shadow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Shadow.swift"; sourceTree = "<group>"; };
 		90F9C6F721ECDC8600F25F94 /* UIView+Corner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Corner.swift"; sourceTree = "<group>"; };
@@ -219,6 +221,7 @@
 		90D831FB21F31597008B22E3 /* RecipleaseTests */ = {
 			isa = PBXGroup;
 			children = (
+				90E6949D21F633E50043567C /* String+FormatUserInputTest.swift */,
 				90D831FE21F31597008B22E3 /* Info.plist */,
 				90D8320421F315FB008B22E3 /* UnwrapperTestCase.swift */,
 			);
@@ -438,6 +441,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				90E6949E21F633E50043567C /* String+FormatUserInputTest.swift in Sources */,
 				90D8320521F315FB008B22E3 /* UnwrapperTestCase.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
