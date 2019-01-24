@@ -27,11 +27,12 @@ class Favorite: NSManagedObject {
 // MARK: - Search
 
 extension Favorite {
-    /// Search for ingredients (case and diacritic insensitive
-    static func search(_ ingredients: String) -> [Favorite] {
+    /// Search for ingredients (case and diacritic insensitive)
+    /// - Returns: An array of favorite recipes, alphabetically sorted by `name`
+    static func search(_ ingredientsList: String) -> [Favorite] {
         let request: NSFetchRequest<Favorite> = Favorite.fetchRequest()
-        request.predicate = NSPredicate(format: "ingredients CONTAINS[cd] %@", ingredients)
-        request.sortDescriptors = [NSSortDescriptor(key: "ingredients", ascending: true)]
+        request.predicate = NSPredicate(format: "ingredientsList CONTAINS[cd] %@", ingredientsList)
+        request.sortDescriptors = [NSSortDescriptor(key: "name", ascending: true)]
 
         do { searchArray = try AppDelegate.viewContext.fetch(request) }
         catch { print("unable to fetch search request: ", error) }

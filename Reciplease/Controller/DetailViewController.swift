@@ -27,7 +27,7 @@ class DetailViewController: UIViewController {
     /// Hold value from RecipeViewController
     var detailedRecipeTime = ""
     /// Hold value from RecipeViewController
-    var detailedRecipeIngredientsList = ""
+    var detailedRecipeIngredients = ""
     /// Check favoriteButton states
     var detailedRecipeIsFavorite = false
 
@@ -161,7 +161,7 @@ extension DetailViewController {
         detailedFavorite.name = detailedRecipeName
         detailedFavorite.rating = detailedRecipeRating
         detailedFavorite.time = detailedRecipeTime
-        detailedFavorite.ingredients = detailedRecipeIngredientsList
+        detailedFavorite.ingredients = detailedRecipeIngredients
         
         detailedFavorite.ingredientsList = self.ingredientsTextView.text
         detailedFavorite.servings = detailedRecipeServingsLabel.text

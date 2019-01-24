@@ -203,7 +203,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="uwK-tH-OEt"/>
                     </view>
-                    <navigationItem key="navigationItem" id="dJS-Bi-SHZ"/>
+                    <navigationItem key="navigationItem" title="Favorites" id="dJS-Bi-SHZ"/>
                     <connections>
                         <outlet property="favoriteTableView" destination="Ter-7R-NVh" id="OyA-IS-arR"/>
                         <segue destination="Yv1-io-HUc" kind="presentation" identifier="presentDetailedRecipe" id="YEW-SZ-IhC"/>
