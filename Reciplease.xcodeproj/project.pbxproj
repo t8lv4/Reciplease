@@ -221,8 +221,8 @@
 		90D831FB21F31597008B22E3 /* RecipleaseTests */ = {
 			isa = PBXGroup;
 			children = (
-				90E6949D21F633E50043567C /* String+FormatUserInputTest.swift */,
 				90D831FE21F31597008B22E3 /* Info.plist */,
+				90E6949D21F633E50043567C /* String+FormatUserInputTest.swift */,
 				90D8320421F315FB008B22E3 /* UnwrapperTestCase.swift */,
 			);
 			path = RecipleaseTests;
