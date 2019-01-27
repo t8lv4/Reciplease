@@ -89,7 +89,7 @@ extension RecipeViewController: UITableViewDataSource {
                                                        for: indexPath) as? ListTableViewCell else { return UITableViewCell() }
 
         let recipe = recipes.matches[indexPath.row]
-        ingredientsList = ingredients.format(with: ", ") + ", ..."
+        ingredientsList = ingredients.format(with: ", ") + "..."
 
         configureCell(for: cell, and: recipe, with: ingredientsList)
         ImageService.getImage(for: cell.recipeImage, from: recipe.smallImageUrls?[0])
