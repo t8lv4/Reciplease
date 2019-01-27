@@ -9,20 +9,22 @@
 import Foundation
 import Alamofire
 
+/// Perform requests to search for recipes
 struct RecipeService: Serviceable {
+    private static let recipe = Recipes(matches: [], totalMatchCount: 0)
+
     static func request(with item: String, callback: @escaping RecipeService.Callback) {
         Alamofire.request(createURL(with: item)).responseJSON { response in
             response.result.ifFailure {
                 callback(false, nil)
             }
             response.result.ifSuccess {
-                let resource = parse(response.data!)
+                let resource: Recipes = parse(response.data!)
                 callback(true, resource)
             }
         }
     }
 
-    /// Build a URL and return a  URLRequest to access Yummly recipes list
     static func createURL(with item: String) -> URL {
         let ingredients = item.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)
         let completeURL = APIAssets.searchEndpoint
@@ -34,13 +36,8 @@ struct RecipeService: Serviceable {
 
         return URL(string: completeURL)!
     }
-}
 
-extension RecipeService {
-    /// Decode data, return recipes
-    static func parse(_ data: Data) -> Recipes {
-        let recipe = Recipes(matches: [], totalMatchCount: 0)
-
+    static func parse<Recipes: Decodable>(_ data: Data) -> Recipes {
         do {
             let recipe = try JSONDecoder().decode(Recipes.self, from: data)
             return recipe
@@ -56,6 +53,6 @@ extension RecipeService {
             print("Unknown error")
         }
 
-        return recipe
+        return RecipeService.recipe as! Recipes
     }
 }

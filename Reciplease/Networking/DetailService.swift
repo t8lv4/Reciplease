@@ -9,14 +9,21 @@
 import Foundation
 import Alamofire
 
+/// Perform requests to get detailed recipes
 struct DetailService: Serviceable {
+    private static let detailedRecipe = DetailedRecipe(ingredientLines: [""],
+                                                       numberOfServings: 0,
+                                                       source: DetailedRecipe.Source.init(sourceRecipeUrl: ""),
+                                                       images: [DetailedRecipe.Images.init(hostedLargeUrl: "")])
+
+
     static func request(with item: String, callback: @escaping DetailService.Callback) {
         Alamofire.request(createURL(with: item)).responseJSON { response in
             response.result.ifFailure {
                 callback(false, nil)
             }
             response.result.ifSuccess {
-                let resource = parseDetailedRecipe(response.data!)
+                let resource: DetailedRecipe = parse(response.data!)
                 callback(true, resource)
             }
         }
@@ -30,18 +37,8 @@ struct DetailService: Serviceable {
 
         return URL(string: completeURL)!
     }
-}
 
-extension DetailService {
-    /// Decode data, return a detailed recipe
-    static private func parseDetailedRecipe(_ data: Data) -> DetailedRecipe {
-        let source = DetailedRecipe.Source.init(sourceRecipeUrl: "")
-        let images = DetailedRecipe.Images.init(hostedLargeUrl: "")
-        let detailedRecipe = DetailedRecipe(ingredientLines: [""],
-                                            numberOfServings: 0,
-                                            source: source,
-                                            images: [images])
-
+    static func parse<DetailedRecipe: Decodable>(_ data: Data) -> DetailedRecipe {
         do {
             let detailedRecipe = try JSONDecoder().decode(DetailedRecipe.self, from: data)
             return detailedRecipe
@@ -57,6 +54,6 @@ extension DetailService {
             print("Unknown error")
         }
 
-        return detailedRecipe
+        return detailedRecipe as! DetailedRecipe
     }
 }

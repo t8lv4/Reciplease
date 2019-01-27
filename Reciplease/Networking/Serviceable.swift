@@ -8,6 +8,7 @@
 
 import Foundation
 
+/// Define methods to perform API calls
 protocol Serviceable {
     typealias Callback = (Bool, Any?) -> Void
     /**
@@ -18,6 +19,8 @@ protocol Serviceable {
         - callback: Provide the state of the API response
      */
     static func request(with item: String, callback: @escaping Callback)
-    /// Build and return a  URL to access a Yummly API resources
+    /// Build and return a  URL to access Yummly API resources
     static func createURL(with item: String) -> URL
+    /// Decode JSON data thanks to a Decodable type
+    static func parse<T: Decodable>(_ data: Data) -> T
 }

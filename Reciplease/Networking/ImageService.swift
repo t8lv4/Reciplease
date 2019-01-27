@@ -9,6 +9,7 @@
 import Foundation
 import Nuke
 
+/// Perform a networking call to get images
 struct ImageService {
     /**
      Call to download an image linked to a recipe
@@ -22,7 +23,7 @@ struct ImageService {
             return
         }
         guard let url = URL(string: smallImageURL) else {
-            print("wrong small image url")
+            print("unable to create small image url")
             return
         }
 

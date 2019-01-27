@@ -8,12 +8,14 @@
 
 import Foundation
 
+/// List UIAlertController titles
 enum AlertTitle: String {
     case networking = "🤔"
     case emptyFavorite = "Create Your Favorites!"
     case noRecipe = "😯"
 }
 
+/// List UIAlertController messages
 enum AlertMessage: String {
     case networking = "Looks like there's a networking issue"
     case emptyFavorite = """
