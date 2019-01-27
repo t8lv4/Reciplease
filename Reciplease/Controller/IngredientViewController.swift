@@ -13,6 +13,10 @@ class IngredientViewController: UIViewController {
     // MARK: - Properties
 
     var userInput = String()
+    /// Default textView string
+    var textViewPlaceHolder: String {
+        return "Add your ingredients"
+    }
 
     /// Reference Clear and Done buttons
     @IBOutlet weak var buttons: UIButton!
@@ -23,7 +27,7 @@ class IngredientViewController: UIViewController {
 
     /// Clear ingredients list
     @IBAction func clearButton(_ sender: Any) {
-        ingredientTextView.text = "Add your ingredients"
+        ingredientTextView.text = textViewPlaceHolder
         ingredientTextView.resignFirstResponder()
     }
 
@@ -32,8 +36,17 @@ class IngredientViewController: UIViewController {
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == UIID.segue.showRecipeVC {
-            let showRecipeVC = segue.destination as! RecipeViewController
-            showRecipeVC.ingredients = ingredientTextView.text
+            let recipeVC = segue.destination as! RecipeViewController
+
+            sendIngredients(to: recipeVC)
+        }
+    }
+
+    private func sendIngredients(to recipeVC: RecipeViewController) {
+        if ingredientTextView.text == textViewPlaceHolder {
+            recipeVC.ingredients = ""
+        } else {
+            recipeVC.ingredients = ingredientTextView.text
         }
     }
 }
