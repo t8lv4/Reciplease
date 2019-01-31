@@ -51,3 +51,20 @@ extension Favorite {
         catch { print("unable to delete all stored objects: ", error) }
     }
 }
+
+// MARK: - Declare attributes and fetchRequest()
+
+extension Favorite {
+    @nonobjc public class func fetchRequest() -> NSFetchRequest<Favorite> {
+        return NSFetchRequest<Favorite>(entityName: "Favorite")
+    }
+
+    @NSManaged public var detailedRecipeURL: String
+    @NSManaged public var image: Data?
+    @NSManaged public var ingredients: String
+    @NSManaged public var ingredientsList: String
+    @NSManaged public var name: String
+    @NSManaged public var rating: String?
+    @NSManaged public var servings: String?
+    @NSManaged public var time: String?
+}

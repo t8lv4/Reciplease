@@ -129,7 +129,7 @@ extension DetailViewController {
         detailedRecipeImageView.image = UIImage(data: detailedFavorite.image!)
         detailedRecipeServingsLabel.text = detailedFavorite.servings
         ingredientsTextView.text = detailedFavorite.ingredientsList
-        detailedRecipeURL = detailedFavorite.detailedRecipeURL!
+        detailedRecipeURL = detailedFavorite.detailedRecipeURL
     }
 
     /**

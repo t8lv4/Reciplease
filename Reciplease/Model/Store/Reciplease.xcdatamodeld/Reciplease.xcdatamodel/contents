@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14460.32" systemVersion="18C54" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
-    <entity name="Favorite" representedClassName=".Favorite" syncable="YES" codeGenerationType="category">
-        <attribute name="detailedRecipeURL" optional="YES" attributeType="String" syncable="YES"/>
+    <entity name="Favorite" representedClassName=".Favorite" syncable="YES">
+        <attribute name="detailedRecipeURL" attributeType="String" syncable="YES"/>
         <attribute name="image" optional="YES" attributeType="Binary" syncable="YES"/>
-        <attribute name="ingredients" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="ingredientsList" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="ingredients" attributeType="String" syncable="YES"/>
+        <attribute name="ingredientsList" attributeType="String" syncable="YES"/>
+        <attribute name="name" attributeType="String" syncable="YES"/>
         <attribute name="rating" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="servings" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="time" optional="YES" attributeType="String" syncable="YES"/>

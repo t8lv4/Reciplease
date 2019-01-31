@@ -75,8 +75,8 @@ extension FavoriteViewController: UITableViewDataSource {
         favorite = favorites[indexPath.row]
 
         cell.configure(image: UIImage(data: favorite.image!)!,
-                       name: favorite.name!,
-                       ingredients: favorite.ingredients!,
+                       name: favorite.name,
+                       ingredients: favorite.ingredients,
                        rating: favorite.rating!,
                        time: favorite.time!)
 
@@ -91,7 +91,7 @@ extension FavoriteViewController: UITableViewDelegate {
         let cell = tableView.cellForRow(at: indexPath)
         favorite = favorites[indexPath.row]
 
-        recipeName = favorite.name!
+        recipeName = favorite.name
         recipeRating = favorite.rating!
         recipeTime = favorite.time!
 
