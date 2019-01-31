@@ -38,7 +38,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         let urls = FileManager.default.urls(for: .libraryDirectory, in: .userDomainMask)
-        print(urls[urls.count-1] as URL)
+        print("library directory: ", urls[urls.count-1] as URL)
 
         return true
     }

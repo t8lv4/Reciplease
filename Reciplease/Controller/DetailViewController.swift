@@ -31,6 +31,8 @@ class DetailViewController: UIViewController {
     /// Check favoriteButton states
     var detailedRecipeIsFavorite = false
 
+    // MARK: - Outlet
+
     /// Recipe's name
     @IBOutlet weak var detailedRecipeNameLabel: UILabel!
     /// Recipe's servings number
@@ -109,7 +111,7 @@ extension DetailViewController {
     }
 }
 
-    // MARK: - Update UI
+// MARK: - Update UI
 
 extension DetailViewController {
     override func viewDidLoad() {
@@ -168,13 +170,13 @@ extension DetailViewController {
         detailedFavorite.image = (detailedRecipeImageView.image ?? UIImage(named: Image.defaultImage.rawValue)!).pngData()
 
         do { try AppDelegate.viewContext.save() }
-        catch { print("unable to store favorite: \(error)")}
+        catch { print("unable to store favorite: \(error)") }
     }
 
     private func deleteFavorite() {
         self.detailedFavorite.managedObjectContext?.delete(self.detailedFavorite)
         
-        do { try AppDelegate.viewContext.save()}
+        do { try AppDelegate.viewContext.save() }
         catch { print("unable to delete favorite: \(error)") }
     }
 }
