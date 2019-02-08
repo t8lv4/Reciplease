@@ -20,7 +20,7 @@ protocol Serviceable {
      */
     static func request(with item: String, callback: @escaping Callback)
     /// Build and return a  URL to access Yummly API resources
-    static func createURL(with item: String) -> URL
+    static func createURL(with item: String) throws -> URL?
     /// Decode JSON data thanks to a Decodable type
     static func parse<T: Decodable>(_ data: Data) -> T
 }

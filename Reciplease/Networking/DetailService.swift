@@ -18,7 +18,11 @@ struct DetailService: Serviceable {
 
 
     static func request(with item: String, callback: @escaping DetailService.Callback) {
-        Alamofire.request(createURL(with: item)).responseJSON { response in
+        let url: URL!
+        do { url = try createURL(with: item) }
+        catch { return callback(false, nil) }
+
+        Alamofire.request(url).responseJSON { response in
             response.result.ifFailure {
                 callback(false, nil)
             }
@@ -29,13 +33,13 @@ struct DetailService: Serviceable {
         }
     }
 
-    static func createURL(with item: String) -> URL {
+    static func createURL(with item: String) throws -> URL? {
         let completeURL = APIAssets.getEndpoint
             + item
             + APIAssets.get
             + APIAssets.credentials
 
-        return URL(string: completeURL)!
+        return URL(string: completeURL)
     }
 
     static func parse<DetailedRecipe: Decodable>(_ data: Data) -> DetailedRecipe {

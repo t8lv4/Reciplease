@@ -14,7 +14,14 @@ struct RecipeService: Serviceable {
     private static let recipe = Recipes(matches: [], totalMatchCount: 0)
 
     static func request(with item: String, callback: @escaping RecipeService.Callback) {
-        Alamofire.request(createURL(with: item)).responseJSON { response in
+        let url: URL!
+        do {
+            url = try createURL(with: item)
+        } catch {
+            return callback(false, nil)
+        }
+        
+        Alamofire.request(url).responseJSON { response in
             response.result.ifFailure {
                 callback(false, nil)
             }
@@ -25,7 +32,7 @@ struct RecipeService: Serviceable {
         }
     }
 
-    static func createURL(with item: String) -> URL {
+    static func createURL(with item: String) throws -> URL? {
         let ingredients = item.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)
         let completeURL = APIAssets.searchEndpoint
             + APIAssets.credentials
@@ -34,7 +41,7 @@ struct RecipeService: Serviceable {
 
         print("completeURL", completeURL)
 
-        return URL(string: completeURL)!
+        return URL(string: completeURL)
     }
 
     static func parse<Recipes: Decodable>(_ data: Data) -> Recipes {
